@@ -44,6 +44,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Concrete\About.cs" />
     <Compile Include="Concrete\Category.cs" />
+    <Compile Include="Concrete\Contact.cs" />
     <Compile Include="Concrete\Content.cs" />
     <Compile Include="Concrete\Heading.cs" />
     <Compile Include="Concrete\Writer.cs" />
