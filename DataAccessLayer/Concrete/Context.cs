@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EntityLayer
+namespace DataAccessLayer.Concrete
 {
-    public class Class1
+    class Context
     {
     }
 }
