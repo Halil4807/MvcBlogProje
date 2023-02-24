@@ -41,7 +41,8 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public List<Tablo> List(Expression<Func<Tablo, bool>> filter)
         {
-            throw new NotImplementedException();
+            return _object.Where(filter).ToList();
+            //throw new NotImplementedException();
         }
 
         public void Update(Tablo parametre)
