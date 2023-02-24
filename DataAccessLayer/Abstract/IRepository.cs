@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    interface IRepository
+    public interface IRepository<Tablo>
     {
+        List<Tablo> List();
+
+        void Insert(Tablo parametre);
+        void Delete(Tablo parametre);
+        void Update(Tablo parametre);
     }
 }
