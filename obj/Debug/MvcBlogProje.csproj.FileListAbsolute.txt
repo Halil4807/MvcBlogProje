@@ -84,3 +84,16 @@ C:\Users\halil\source\repos\MvcBlogProje\obj\Debug\MvcBlogProje.csproj.CoreCompi
 C:\Users\halil\source\repos\MvcBlogProje\obj\Debug\MvcBlogProje.csproj.CopyComplete
 C:\Users\halil\source\repos\MvcBlogProje\obj\Debug\MvcBlogProje.dll
 C:\Users\halil\source\repos\MvcBlogProje\obj\Debug\MvcBlogProje.pdb
+C:\Users\halil\source\repos\MvcBlogProje\bin\BusinessLayer.dll
+C:\Users\halil\source\repos\MvcBlogProje\bin\DataAccessLayer.dll
+C:\Users\halil\source\repos\MvcBlogProje\bin\EntityLayer.dll
+C:\Users\halil\source\repos\MvcBlogProje\bin\EntityFramework.dll
+C:\Users\halil\source\repos\MvcBlogProje\bin\BusinessLayer.pdb
+C:\Users\halil\source\repos\MvcBlogProje\bin\BusinessLayer.dll.config
+C:\Users\halil\source\repos\MvcBlogProje\bin\DataAccessLayer.pdb
+C:\Users\halil\source\repos\MvcBlogProje\bin\DataAccessLayer.dll.config
+C:\Users\halil\source\repos\MvcBlogProje\bin\EntityLayer.pdb
+C:\Users\halil\source\repos\MvcBlogProje\bin\EntityLayer.dll.config
+C:\Users\halil\source\repos\MvcBlogProje\bin\EntityFramework.xml
+C:\Users\halil\source\repos\MvcBlogProje\bin\EntityFramework.SqlServer.dll
+C:\Users\halil\source\repos\MvcBlogProje\bin\EntityFramework.SqlServer.xml
