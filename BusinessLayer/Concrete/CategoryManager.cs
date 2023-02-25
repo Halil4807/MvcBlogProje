@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete
         {
             if (par.CategoryName == "" || par.CategoryDescription == "" || par.CategoryName.Length <= 3 || par.CategoryName.Length > 50)
             {
-                //Hata Mesajı
+                //Hata Mesajı buaraya yazılacak
             }
             else
             {
