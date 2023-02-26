@@ -18,8 +18,8 @@ namespace MvcBlogProje.Controllers
         }
         public ActionResult GetCategoryList()
         {
-            var categoryvalues = cm.GetAllBL();
-            return View(categoryvalues);
+            //var categoryvalues = cm.GetAllBL();
+            return View(/*categoryvalues*/);
         }
         [HttpGet]
         public ActionResult AddCategory()
@@ -29,7 +29,7 @@ namespace MvcBlogProje.Controllers
         [HttpPost]
         public ActionResult AddCategory(Category parametre)
         {
-            cm.CategoryAddBL(parametre);
+            //cm.CategoryAddBL(parametre);
             return RedirectToAction("GetCategoryList");
         }
     }
