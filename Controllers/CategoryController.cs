@@ -19,8 +19,8 @@ namespace MvcBlogProje.Controllers
         }
         public ActionResult GetCategoryList()
         {
-            //var categoryvalues = cm.GetAllBL();
-            return View(/*categoryvalues*/);
+            var categoryvalues = cm.GetList();
+            return View(categoryvalues);
         }
         [HttpGet]
         public ActionResult AddCategory()
