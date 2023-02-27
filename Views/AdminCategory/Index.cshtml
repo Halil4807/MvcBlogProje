@@ -1,8 +1,34 @@
-﻿
+﻿@using EntityLayer.Concrete;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-<h2>Index</h2>
-
+<br />
+<br />
+<div class="col-md-9" style="position: relative; margin: auto;">
+    <h3>Kategori Tablosu</h3>
+    <br />
+    <br />
+    <table class="table table-hover table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Adı</th>
+            <th>Açıklama</th>
+            <th>Durum</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Eğitim</td>
+            <td>Açıklama Yok</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Film</td>
+            <td>Açıklama Yok</td>
+            <td>True</td>
+        </tr>
+    </table>
+    <button class="btn btn-success">Yeni Kategori</button>
+    <button class="btn btn-danger">Kategori</button>
+</div>
