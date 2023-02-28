@@ -28,7 +28,21 @@ namespace MvcBlogProje.Controllers
         [HttpPost]
         public ActionResult AddCategory(Category parametre)
         {
-            cm.CategoryAddBL(parametre);
-            return RedirectToAction("Index");
+            CategoryValidator categoryvalidator = new CategoryValidator();
+            ValidationResult result = categoryvalidator.Validate(parametre);
+            if (result.IsValid)
+            {
+                cm.CategoryAddBL(parametre);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
         }
+    }
 }
