@@ -1,34 +1,44 @@
-﻿@using EntityLayer.Concrete;
+﻿@using EntityLayer.Concrete
+@model List<Category>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
 <br />
 <br />
-<div class="col-md-9" style="position: relative; margin: auto;">
+
+<div class="col-md-11" style="position: relative; margin: auto;">
     <h3>Kategori Tablosu</h3>
     <br />
     <br />
     <table class="table table-hover table-bordered">
         <tr>
-            <th>ID</th>
+            <th align="center">ID</th>
             <th>Adı</th>
             <th>Açıklama</th>
             <th>Durum</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Başlıklar</th>
         </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CategoryID</td>
+                <td>@item.CategoryName</td>
+                <td>@item.CategoryDescription</td>
+                <td width="8%"align="center">@item.CaterogyStatus</td>
+                <td width="8%"align="center"><a href="#" class="btn btn-danger">Sil</a></td>
+                <td width="8%"align="center"><a href="#" class="btn btn-warning">Güncelle</a></td>
+                <td width="8%"align="center"><a href="#" class="btn btn-primary">Başlıklar</a></td>
+            </tr>
+        }
         <tr>
-            <td>1</td>
-            <td>Eğitim</td>
-            <td>Açıklama Yok</td>
-            <td>True</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Film</td>
-            <td>Açıklama Yok</td>
-            <td>True</td>
         </tr>
     </table>
     <button class="btn btn-success">Yeni Kategori</button>
-    <button class="btn btn-danger">Kategori</button>
 </div>
+
+<br />
