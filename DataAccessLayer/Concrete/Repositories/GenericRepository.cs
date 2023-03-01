@@ -21,9 +21,10 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public void Delete(Tablo parametre)
         {
-            _object.Remove(parametre);
+            var deletedEntity = c.Entry(parametre);
+            deletedEntity.State = EntityState.Deleted;
+            //_object.Remove(parametre);
             c.SaveChanges();
-            //throw new NotImplementedException();
         }
 
         public Tablo Get(Expression<Func<Tablo, bool>> filter)
@@ -33,7 +34,9 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public void Insert(Tablo parametre)
         {
-            _object.Add(parametre);
+            var addEntity = c.Entry(parametre);
+            addEntity.State = EntityState.Added;
+            //_object.Add(parametre);
             c.SaveChanges();
             //throw new NotImplementedException();
         }
@@ -52,9 +55,9 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public void Update(Tablo parametre)
         {
-            //Değişikler direk olarak kaydedilir. Çünkü güncellemeden önce değişiklikler zaten yansıtılıyor.
+            var updatedEntity = c.Entry(parametre);
+            updatedEntity.State = EntityState.Modified;
             c.SaveChanges();
-            //throw new NotImplementedException();
         }
     }
 }
