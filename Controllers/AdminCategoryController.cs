@@ -56,5 +56,11 @@ namespace MvcBlogProje.Controllers
             var categoryValue = cm.GetById(id);
             return View(categoryValue);
         }
+        [HttpPost]
+        public ActionResult EditCategory(Category parametre)
+        {
+            cm.CategoryUpdateBL(parametre);
+            return RedirectToAction("Index");
+        }
     }
 }
