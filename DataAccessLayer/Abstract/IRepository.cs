@@ -12,6 +12,7 @@ namespace DataAccessLayer.Abstract
         List<Tablo> List();
 
         void Insert(Tablo parametre);
+        Tablo Get(Expression<Func<Tablo, bool>> filter);
         void Delete(Tablo parametre);
         void Update(Tablo parametre);
         List<Tablo> List(Expression<Func<Tablo, bool>> filter);

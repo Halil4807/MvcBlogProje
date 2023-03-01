@@ -26,6 +26,11 @@ namespace DataAccessLayer.Concrete.Repositories
             //throw new NotImplementedException();
         }
 
+        public Tablo Get(Expression<Func<Tablo, bool>> filter)
+        {
+            return _object.SingleOrDefault(filter);
+        }
+
         public void Insert(Tablo parametre)
         {
             _object.Add(parametre);
