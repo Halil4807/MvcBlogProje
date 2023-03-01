@@ -50,5 +50,11 @@ namespace MvcBlogProje.Controllers
             cm.CategoryDeleteBL(categoryvalue);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult EditCategory(int id)
+        {
+            var categoryValue = cm.GetById(id);
+            return View(categoryValue);
+        }
     }
 }

@@ -1,0 +1,35 @@
+﻿@model EntityLayer.Concrete.Category
+@{
+    ViewBag.Title = "EditCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<br />
+<h1 style="padding-left: 70px">Kategori Güncelleme Sayfası</h1>
+<br />
+<br />
+@using (Html.BeginForm("EditCategory", "AdminCategory", FormMethod.Post))
+{
+<div class="form-group col-md-6" style="padding-left:45px">
+    @Html.Label("Kategori ID :")
+    @Html.TextBoxFor(x => x.CategoryID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategori Adı :")
+    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    <p style="color:red">@Html.ValidationMessageFor(x => x.CategoryID)</p>
+
+    @Html.Label("Kategori Açıklaması :")
+    @Html.TextAreaFor(x => x.CategoryDescription, new { @class = "form-control" })
+    <p style="color:red">@Html.ValidationMessageFor(x => x.CategoryDescription)</p>
+
+    @Html.Label("Kategori Durumu:")
+    @Html.DropDownList("CaterogyStatus", new List<SelectListItem>
+    {
+          new SelectListItem { Text = "Aktif", Value = "true"},
+          new SelectListItem { Text = "Pasif", Value = "false"}
+    }/*,"Kategori Durumu Seçiniz!"*/, new { @class = "form-control" })
+    <p style="color:red"> @Html.ValidationMessageFor(x => x.CaterogyStatus) </p>
+
+    <button class="btn btn-warning">Kategori Güncelle</button>
+</div>
+}

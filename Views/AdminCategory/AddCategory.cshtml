@@ -25,7 +25,7 @@
     {
           new SelectListItem { Text = "Aktif", Value = "true",Selected=true},
           new SelectListItem { Text = "Pasif", Value = "false"}
-    }, "Kategori Durumu Seçiniz!", new { @class = "form-control" })
+    },"Kategori Durumu Seçiniz!", new { @class = "form-control" })
     <p style="color:red"> @Html.ValidationMessageFor(x => x.CaterogyStatus) </p>
     <br />
     <button class="btn btn-success">Kategori Ekle</button>
