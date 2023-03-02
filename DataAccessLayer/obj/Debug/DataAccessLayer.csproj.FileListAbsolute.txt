@@ -16,3 +16,4 @@ C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Debug\DataAccessLay
 C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.mig1.resources
 C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.GenerateResource.cache
 C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.mig_writer_edit_02_03_2023.resources
+C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.mig_writer_edit_writerimage.resources
