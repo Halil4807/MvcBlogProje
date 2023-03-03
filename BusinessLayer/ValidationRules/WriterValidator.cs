@@ -18,6 +18,7 @@ namespace BusinessLayer.ValidationRules
             RuleFor(x => x.WriterAbout).Must(x => x != null && x.ToUpper().Contains("A")).WithMessage("Hakkında kısmında en az bir A harfi içermelidir");
             RuleFor(x => x.WriterImage).NotEmpty().WithMessage("Yazar resmi boş geçemezsiniz!!");
             RuleFor(x => x.WriterMail).NotEmpty().WithMessage("Yazar maili boş geçemezsiniz!!");
+            RuleFor(x => x.WriterTitle).NotEmpty().WithMessage("Yazar ünvanı boş geçemezsiniz!!");
             RuleFor(x => x.WriterMail).EmailAddress().WithMessage("Yazar mail formaya uygun değil!!");
             RuleFor(x => x.WriterPassword).NotEmpty().WithMessage("Yazar parolası boş geçemezsiniz!!");
         }
