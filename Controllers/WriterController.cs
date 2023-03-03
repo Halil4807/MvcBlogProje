@@ -14,6 +14,7 @@ namespace MvcBlogProje.Controllers
     public class WriterController : Controller
     {
         WriterManager wm = new WriterManager(new EfWriterDal());
+        WriterValidator writervalidar = new WriterValidator();
         public ActionResult Index()
         {
             var WriterValue = wm.GetListBL();
@@ -27,7 +28,6 @@ namespace MvcBlogProje.Controllers
         [HttpPost]
         public ActionResult AddWriter(Writer writer)
         {
-            WriterValidator writervalidar = new WriterValidator();
             ValidationResult sonuc = writervalidar.Validate(writer);
             if (sonuc.IsValid)
             {
@@ -52,8 +52,20 @@ namespace MvcBlogProje.Controllers
         [HttpPost]
         public ActionResult EditWriter(Writer yazar)
         {
-            wm.WriterUpdateBL(yazar);
-            return RedirectToAction("Index");
+            ValidationResult sonuc = writervalidar.Validate(yazar);
+            if (sonuc.IsValid)
+            {
+                wm.WriterUpdateBL(yazar);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in sonuc.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
         }
     }
 }
