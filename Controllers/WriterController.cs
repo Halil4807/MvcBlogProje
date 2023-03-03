@@ -43,5 +43,17 @@ namespace MvcBlogProje.Controllers
             }
             return View();
         }
+         [HttpGet]
+        public ActionResult EditWriter(int id)
+        {
+            var writervalue = wm.GetByIDBL(id);
+            return View(writervalue);
+        }
+        [HttpPost]
+        public ActionResult EditWriter(Writer yazar)
+        {
+            wm.WriterUpdateBL(yazar);
+            return RedirectToAction("Index");
+        }
     }
 }
