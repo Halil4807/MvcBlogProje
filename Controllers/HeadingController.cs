@@ -14,7 +14,8 @@ namespace MvcBlogProje.Controllers
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         public ActionResult Index()
         {
-            return View();
+            var headingvalue = hm.GetList();
+            return View(headingvalue);
         }
     }
 }
