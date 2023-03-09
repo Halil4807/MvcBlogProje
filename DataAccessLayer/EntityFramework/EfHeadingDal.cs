@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EntityFramework
 {
-    public class EfHeadingDal
+    public class EfHeadingDal:GenericRepository<Heading>,IHeadingDal
     {
     }
 }
