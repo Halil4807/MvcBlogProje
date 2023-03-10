@@ -26,6 +26,8 @@ namespace MvcBlogProje.Controllers
         [HttpPost]
         public ActionResult AddHeading(Heading heading)
         {
+            heading.HeadingDate = DateTime.Now;
+            //heading.HeadingDate =DateTime.Parse(DateTime.Now.ToLongTimeString());  Sadece tarihi alma
             hm.HeadingAddBL(heading);
             return RedirectToAction("Index");
         }
