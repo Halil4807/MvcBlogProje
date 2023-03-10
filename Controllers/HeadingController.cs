@@ -13,6 +13,7 @@ namespace MvcBlogProje.Controllers
     public class HeadingController : Controller
     {
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
+        CategoryManager cm = new CategoryManager(new EfCategoryDal());
         public ActionResult Index()
         {
             var headingvalue = hm.GetList();
@@ -21,6 +22,8 @@ namespace MvcBlogProje.Controllers
         [HttpGet]
         public ActionResult AddHeading()
         {
+            List<SelectListItem> categorylist = (from x in cm.GetList() select new SelectListItem {Text=x.CategoryName, Value=x.CategoryID.ToString() }).ToList();
+            ViewBag.categoriler = categorylist;
             return View();
         }
         [HttpPost]
