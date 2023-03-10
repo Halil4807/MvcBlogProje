@@ -14,6 +14,7 @@ namespace MvcBlogProje.Controllers
     {
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        WriterManager wm = new WriterManager(new EfWriterDal());
         public ActionResult Index()
         {
             var headingvalue = hm.GetList();
@@ -24,6 +25,8 @@ namespace MvcBlogProje.Controllers
         {
             List<SelectListItem> categorylist = (from x in cm.GetList() select new SelectListItem {Text=x.CategoryName, Value=x.CategoryID.ToString() }).ToList();
             ViewBag.categoriler = categorylist;
+            List<SelectListItem> yazarlarlist = (from x in wm.GetListBL() select new SelectListItem { Text = x.WriterName + " " + x.WriterSurName, Value = x.WriterID.ToString() }).ToList();
+            ViewBag.yazarlar = yazarlarlist;
             return View();
         }
         [HttpPost]
