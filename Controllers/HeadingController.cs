@@ -37,5 +37,9 @@ namespace MvcBlogProje.Controllers
             hm.HeadingAddBL(heading);
             return RedirectToAction("Index");
         }
+        public ActionResult ContentByHeading()
+        {
+            return View();
+        }
     }
 }
