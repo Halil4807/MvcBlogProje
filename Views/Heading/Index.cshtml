@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
+@{ string color = "danger";}
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -59,6 +59,30 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
+                        if (item.Category.CategoryName == "Tiyatro")
+                        {
+                            color = "warning";
+                        }
+                        else if (item.Category.CategoryName == "Spor")
+                        {
+                            color = "success";
+                        }
+                        else if (item.Category.CategoryName == "Kitap")
+                        {
+                            color = "info";
+                        }
+                        else if (item.Category.CategoryName == "Seyahat")
+                        {
+                            color = "secondary";
+                        }
+                        else if (item.Category.CategoryName == "Eğitim")
+                        {
+                            color = "primary";
+                        }
+                        else
+                        {
+                            color = "danger";
+                        }
                         <tr>
                             <td>
                                 @item.HeadingID
@@ -80,7 +104,7 @@
                                 </ul>
                             </td>
                             <td class="project-state">
-                                <span class="badge badge-success">@item.Category.CategoryName</span>
+                                <span class="badge badge-@color">@item.Category.CategoryName</span>
                             </td>
                             <td class="project-actions text-right">
                                 <a class="btn btn-primary btn-sm" href="/Heading/Index/@item.HeadingID">
