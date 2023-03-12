@@ -22,5 +22,10 @@ namespace MvcBlogProje.Controllers
             var contentvalue = cm.GetListByIDBL(id);
             return View(contentvalue);
         }
+        public ActionResult ContentByWriter(int id)
+        {
+            var contentvalue = cm.GetListWriterIDBL(id);
+            return View(contentvalue);
+        }
     }
 }

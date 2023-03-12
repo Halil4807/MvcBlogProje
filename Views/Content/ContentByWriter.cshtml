@@ -1,7 +1,7 @@
 ﻿@using EntityLayer.Concrete
 @model List<Content>
 @{
-    ViewBag.Title = "ContentByHeading";
+    ViewBag.Title = "ContentByWriter";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -11,11 +11,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>
-                    @foreach (var item in Model)
-                    {
-                        @item.Heading.HeadingName break;
-                    }</h1>
+
+                @foreach (var item in Model)
+                {
+                    <h1> @item.Writer.WriterName @item.Writer.WriterSurName </h1>break;
+                }
+
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -55,7 +56,7 @@
                                         <div>
                                             <i class="fas fa-comment bg-yellow"></i>
                                             <div class="timeline-item">
-                                                <h3 class="timeline-header"><a href="/Content/ContentByWriter/@item.WriterID">@item.Writer.WriterName @item.Writer.WriterSurName</a></h3>
+                                                <h3 class="timeline-header"><a href="/Content/ContentByHeading/@item.HeadingID">@item.Heading.HeadingName</a></h3>
                                                 <div class="timeline-body">
                                                     @item.ContentValue
                                                 </div>
