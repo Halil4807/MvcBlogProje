@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,13 @@ namespace BusinessLayer.Concrete
 {
     public class ContentManager : IContentService
     {
+        IContentDal _contentDal;
+
+        public ContentManager(IContentDal contentDal)
+        {
+            _contentDal = contentDal;
+        }
+
         public void ContentAddBL(Content content)
         {
             throw new NotImplementedException();
