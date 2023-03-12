@@ -29,40 +29,42 @@
         <div class="card-body ">
             @using (Html.BeginForm("EditHeading", "Heading", FormMethod.Post))
             {
-                <div class="form-group col-md-6" style="padding-left: 45px">
-                    @Html.Label("Başlık ID:")
-                    @Html.TextBoxFor(x => x.HeadingID, new { @class = "form-control", ReadOnly = true })
+            <div class="form-group col-md-6" style="padding-left: 45px">
+                @Html.Label("Başlık ID:")
+                @Html.TextBoxFor(x => x.HeadingID, new { @class = "form-control", ReadOnly = true })
+                @Html.HiddenFor(x => x.HeadingDate, new { @class = "form-control" })
+                @Html.HiddenFor(x => x.WriterID, new { @class = "form-control" })
 
-                    @Html.Label("Başlık Adı:")
-                    @Html.TextBoxFor(x => x.HeadingName, new { @class = "form-control" })
-                    <p style="color:red">@Html.ValidationMessageFor(x => x.HeadingName)</p>
+                @Html.Label("Başlık Adı:")
+                @Html.TextBoxFor(x => x.HeadingName, new { @class = "form-control" })
+                <p style="color:red">@Html.ValidationMessageFor(x => x.HeadingName)</p>
 
-                    @Html.Label("Kategori:")
-                    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.categoriler, "Kategori Seçiniz", new { @class = "form-control" })
-                    <p style="color:red">@Html.ValidationMessageFor(x => x.CategoryID)</p>
+                @Html.Label("Kategori:")
+                @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.categoriler, "Kategori Seçiniz", new { @class = "form-control" })
+                <p style="color:red">@Html.ValidationMessageFor(x => x.CategoryID)</p>
 
-                    @Html.Label("Durumu :")
-                    @Html.DropDownListFor(x => x.HeadingStatus,
-                         new List<SelectListItem> {
-                             new SelectListItem {
-                                Text="Aktif",
-                                Value="True",
-                                    // Selected = true, seçili olarak gelsin
-                                // Disabled = true  disable olarak gelsin istersek kullanıyoruz
-                             },
-                             new SelectListItem {
-                                Text="Pasif",
-                                Value="False",
-                             },
-                         }, new { @class = "form-control" })
+                @Html.Label("Durumu :")
+                @Html.DropDownListFor(x => x.HeadingStatus,
+                     new List<SelectListItem> {
+                         new SelectListItem {
+                            Text="Aktif",
+                            Value="True",
+                                // Selected = true, seçili olarak gelsin
+                            // Disabled = true  disable olarak gelsin istersek kullanıyoruz
+                         },
+                         new SelectListItem {
+                            Text="Pasif",
+                            Value="False",
+                         },
+                     }, new { @class = "form-control" })
 
 
-                    <br />
-                    <div style="text-align: center">
-                        <button class="btn btn-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Başlığı Düzenle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-                        <a href="/Heading" class="btn btn-secondary">Geri</a>
-                    </div>
+                <br />
+                <div style="text-align: center">
+                    <button class="btn btn-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Başlığı Düzenle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                    <a href="/Heading" class="btn btn-secondary">Geri</a>
                 </div>
+            </div>
             }
         </div>
     </div>

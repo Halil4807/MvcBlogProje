@@ -48,7 +48,14 @@ namespace MvcBlogProje.Controllers
         [HttpPost]
         public ActionResult EditHeading(Heading heading)
         {
-            return View();
+            hm.HeadingUpdateBL(heading);
+            return RedirectToAction("Index");
+        }
+        public ActionResult DeleteHeading(int id)
+        {
+            var HeadingValue = hm.GetById(id);
+            hm.HeadingDeleteBL(HeadingValue);
+            return RedirectToAction("Index");
         }
     }
 }
