@@ -20,3 +20,4 @@ C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Debug\DataAccessLay
 C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.mig_writer_add_writertitle.resources
 C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.mig_writer_adit_writerimagesize.resources
 C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.mig_writer_add_WriterStatus.resources
+C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.mig_content_add_ContentStatus.resources
