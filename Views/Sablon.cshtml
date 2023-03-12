@@ -32,8 +32,22 @@
         <div class="card-body pb-0">
 
             Sayfa içeriğinin yazılacağı alan
-
-
+            @* value çekilen veri ile aynı olursa Seçili olarak geliyor
+        @Html.Label("Durumu :")
+        @Html.DropDownListFor(x => x.HeadingStatus,
+             new List<SelectListItem> {
+                 new SelectListItem {
+                    Text="Aktif",
+                    Value="True",
+                        // Selected = true, seçili olarak gelsin
+                    // Disabled = true  disable olarak gelsin istersek kullanıyoruz
+                 },
+                 new SelectListItem {
+                    Text="Pasif",
+                    Value="False",
+                 },
+             }, new { @class = "form-control" })
+            *@
         </div>
 
 
