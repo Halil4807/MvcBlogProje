@@ -54,6 +54,14 @@ namespace MvcBlogProje.Controllers
         public ActionResult DeleteHeading(int id)
         {
             var HeadingValue = hm.GetById(id);
+            if (HeadingValue.HeadingStatus == true)
+            {
+                HeadingValue.HeadingStatus = false;
+            }
+            else
+            {
+                HeadingValue.HeadingStatus = true;
+            }
             hm.HeadingDeleteBL(HeadingValue);
             return RedirectToAction("Index");
         }
