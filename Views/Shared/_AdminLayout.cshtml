@@ -20,6 +20,12 @@
     <link rel="stylesheet" href="~/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+
+
+
+    <link rel="stylesheet" href="~/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -58,7 +64,7 @@ to get the desired effect
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-    with font-awesome or any other icon font library -->
+                        with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview">
                             <a href="/AdminCategory/Index" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -164,7 +170,7 @@ to get the desired effect
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-exchange-alt text-info"></i>
-                                
+
                                 <p>
                                     Siteye Git
                                 </p>
@@ -197,7 +203,7 @@ to get the desired effect
         <!-- /.content-wrapper -->
         <!-- Main Footer -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2023 <a href="https://github.com/Halil4807" target="_blank" >github Halil4807</a>.</strong>
+            <strong>Copyright &copy; 2023 <a href="https://github.com/Halil4807" target="_blank">github Halil4807</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 3.0.4
@@ -217,5 +223,34 @@ to get the desired effect
     <script src="~/plugins/chart.js/Chart.min.js"></script>
     <script src="~/dist/js/demo.js"></script>
     <script src="~/dist/js/pages/dashboard3.js"></script>
+
+
+    <!-- DataTables -->
+    <script src="~/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/dist/js/demo.js"></script>
+    <!-- page script -->
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": false,
+            });
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });</script>
+    <!-- DataTables -->
 </body>
 </html>
