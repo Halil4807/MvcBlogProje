@@ -11,36 +11,36 @@ namespace BusinessLayer.Concrete
 {
     public class AboutManager : IAboutService
     {
-        IAboutDal aboutDal;
+        IAboutDal _aboutDal;
 
         public AboutManager(IAboutDal aboutDal)
         {
-            this.aboutDal = aboutDal;
+            this._aboutDal = aboutDal;
         }
 
         public void AboutAddBL(About about)
         {
-            throw new NotImplementedException();
+            _aboutDal.Insert(about);
         }
 
         public void AboutDeleteBL(About about)
         {
-            throw new NotImplementedException();
+            _aboutDal.Delete(about);
         }
 
         public void AboutUpdateBL(About about)
         {
-            throw new NotImplementedException();
+            _aboutDal.Update(about);
         }
 
         public About GetById(int id)
         {
-            throw new NotImplementedException();
+            return _aboutDal.Get(x => x.AboutID == id);
         }
 
         public List<About> GetList()
         {
-            throw new NotImplementedException();
+            return _aboutDal.List();
         }
     }
 }
