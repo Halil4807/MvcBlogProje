@@ -1,0 +1,32 @@
+﻿<div class="modal" id="ModalAboutAdd">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Hakkımızda Yazı Girişi</h2>
+            </div>
+            <div class="modal-body">
+                <form action="/About/AddAbout" method="post">
+                    <label>Metin 1</label>
+                    <input type="text" name="AboutDetails1" class="form-control" />
+                    <br />
+                    <label>Metin 2</label>
+                    <input type="text" name="AboutDetails2" class="form-control" />
+                    <br />
+                    <label>Görsel 1</label>
+                    <input type="text" name="AboutImage1" class="form-control" />
+                    <br />
+                    <label>Görsel 2</label>
+                    <input type="text" name="AboutImage2" class="form-control" />
+                    <br />
+                    <label>Durumu</label>
+                    <select name="cars" id="cars" class="form-control">
+                        <option value="True">Aktif</option>
+                        <option value="False">Pasif</option>
+                    </select>
+                    <br />
+                    <button class="btn btn-info">Ekle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

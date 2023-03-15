@@ -28,5 +28,9 @@ namespace MvcBlogProje.Controllers
             abm.AboutAddBL(about);
             return RedirectToAction("Index");
         }
+        public PartialViewResult AddAboutPartial()
+        {
+            return PartialView();
+        }
     }
 }

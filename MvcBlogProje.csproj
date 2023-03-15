@@ -2333,6 +2333,7 @@
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\SablonTablowithSearch.cshtml" />
     <Content Include="Views\Heading\Index - Kopyala.cshtml" />
+    <Content Include="Views\About\AddAboutPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
