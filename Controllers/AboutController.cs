@@ -15,7 +15,8 @@ namespace MvcBlogProje.Controllers
         AboutManager abm = new AboutManager(new EfAboutDal());
         public ActionResult Index()
         {
-            return View();
+            var aboutvalue = abm.GetList();
+            return View(aboutvalue);
         }
         [HttpGet]
         public ActionResult AddAbout()

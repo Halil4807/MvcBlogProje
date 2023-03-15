@@ -119,12 +119,14 @@
 
                             <td class="project-state">
                                 <span class="badge badge-@durumcolor">
-                                    @if (item.HeadingStatus)
-                                    {
-                    <font>Aktif</font> }
-                else
-                {
-<font>Pasif</font>}
+                                     @if (item.HeadingStatus)
+                                     {
+                                        <font>Aktif</font> 
+                                     }
+                                     else
+                                     {
+                                        <font>Pasif</font>
+                                     }
                                 </span>
                             </td>
                             <td class="project-actions text-right">
