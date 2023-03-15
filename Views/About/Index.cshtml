@@ -4,8 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-@{ string color = "danger";
-    string durumcolor = "";
+@{  string durumcolor = "";
     string durumbutton = "";
     string durumbuttoncolor = "";}
 <!-- Content Header (Page header) -->
@@ -41,7 +40,7 @@
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="example1" class="table table-striped projects table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>About Detay 1</th>
@@ -55,59 +54,59 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                        if (item.AboutStatus == true)
+                                        
+                                    <tr>
+                                        <td>@item.AboutDetails1</td>
+                                        <td>@item.AboutDetails2</td>
+                                        <td>@item.AboutImage1</td>
+                                        <td>@item.AboutImage2</td>
+                                        @if (item.AboutStatus == true)
                                         {
-                                            durumcolor = "success";
+                                        durumcolor = "success";
                                         }
                                         else
                                         {
-                                            durumcolor = "danger";
+                                        durumcolor = "danger";
                                         }
-                                        <tr>
-                                            <td>@item.AboutDetails1</td>
-                                            <td>@item.AboutDetails2</td>
-                                            <td>@item.AboutImage1</td>
-                                            <td>@item.AboutImage2</td>
-
-                                            <td class="project-state">
-                                                <span class="badge badge-@durumcolor">
-                                                    @if (item.AboutStatus)
-                                                    {
-                                                        <font>Aktif</font> }
-                                                    else
-                                                    {
-                                                        <font>Pasif</font>}
-                                                </span>
-                                            </td>
-                                            <td class="project-actions text-right">
-                                                <a class="btn btn-info btn-sm" href="/About/EditAbout/@item.AboutID">
-                                                    <i class="fas fa-pencil-alt">
-                                                    </i>
-                                                    Düzenle
-                                                </a>
-
+                                        <td class="project-state">
+                                            <span class="badge badge-@durumcolor">
                                                 @if (item.AboutStatus)
                                                 {
-                                                    durumbuttoncolor = "danger";
-                                                    durumbutton = "fas fa-trash";
-                                                }
+                                                    <font>Aktif</font> }
                                                 else
                                                 {
-                                                    durumbuttoncolor = "success";
-                                                    durumbutton = "fas fa-plus-square";
-                                                }
-                                                <a class="btn btn-@durumbuttoncolor btn-sm" href="/About/DeleteAbout/@item.AboutID">
-                                                    <i class="@durumbutton">
-                                                    </i>
-                                                    @if (item.AboutStatus)
-                                                    {
-                                                        <font>Pasif Yap</font> }
-                                                    else
-                                                    {
-                                                        <font>Aktif Yap</font>}
-                                                </a>
-                                            </td>
-                                        </tr>
+                                                    <font>Pasif</font>}
+                                            </span>
+                                        </td>
+                                        <td class="project-actions text-right">
+                                            <a class="btn btn-info btn-sm" href="/About/EditAbout/@item.AboutID">
+                                                <i class="fas fa-pencil-alt">
+                                                </i>
+                                                Düzenle
+                                            </a>
+
+                                            @if (item.AboutStatus)
+                                            {
+                                                durumbuttoncolor = "danger";
+                                                durumbutton = "fas fa-trash";
+                                            }
+                                            else
+                                            {
+                                                durumbuttoncolor = "success";
+                                                durumbutton = "fas fa-plus-square";
+                                            }
+                                            <a class="btn btn-@durumbuttoncolor btn-sm" href="/About/DeleteAbout/@item.AboutID">
+                                                <i class="@durumbutton">
+                                                </i>
+                                                @if (item.AboutStatus)
+                                                {
+                                                    <font>Pasif Yap</font> }
+                                                else
+                                                {
+                                                    <font>Aktif Yap</font>}
+                                            </a>
+                                        </td>
+                                    </tr>
                                     }
                                 </tbody>
                             </table>

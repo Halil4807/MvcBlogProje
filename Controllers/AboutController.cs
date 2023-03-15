@@ -33,5 +33,19 @@ namespace MvcBlogProje.Controllers
         {
             return PartialView();
         }
+        public ActionResult DeleteAbout(int id)
+        {
+            var AboutValue = abm.GetById(id);
+            if (AboutValue.AboutStatus == true)
+            {
+                AboutValue.AboutStatus = false;
+            }
+            else
+            {
+                AboutValue.AboutStatus = true;
+            }
+            abm.AboutUpdateBL(AboutValue);
+            return RedirectToAction("Index");
+        }
     }
 }
