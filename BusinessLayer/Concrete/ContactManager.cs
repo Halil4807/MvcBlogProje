@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,13 @@ namespace BusinessLayer.Concrete
 {
     public class ContactManager : IContactService
     {
+        IContactDal _contactDal;
+
+        public ContactManager(IContactDal contactDal)
+        {
+            _contactDal = contactDal;
+        }
+
         public void ContactAddBL(Contact contact)
         {
             throw new NotImplementedException();
