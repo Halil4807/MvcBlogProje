@@ -8,6 +8,31 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    class ContactManager
+    public class ContactManager : IContactService
+    {
+        public void ContactAddBL(Contact contact)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ContactDeleteBL(Contact contact)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ContactUpdateBL(Contact contact)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Contact GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Contact> GetList()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
