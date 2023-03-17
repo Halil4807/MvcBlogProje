@@ -19,5 +19,10 @@ namespace MvcBlogProje.Controllers
             var contactvalues = cm.GetList();
             return View(contactvalues);
         }
+        public ActionResult GetContactDetails(int id)
+        {
+            var ContactDetail = cm.GetById(id);
+            return View(ContactDetail);
+        }
     }
 }

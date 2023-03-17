@@ -2336,6 +2336,7 @@
     <Content Include="Views\Heading\Index - Kopyala.cshtml" />
     <Content Include="Views\About\AddAboutPartial.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contact\GetContactDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
