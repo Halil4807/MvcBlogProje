@@ -1,4 +1,4 @@
-﻿
+﻿@model EntityLayer.Concrete.Contact
 @{
     ViewBag.Title = "GetContactDetails";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -6,3 +6,11 @@
 
 <h2>GetContactDetails</h2>
 
+@using (Html.BeginForm("EditCategory", "AdminCategory", FormMethod.Post))
+{
+<div class="form-group col-md-6" style="padding-left:45px">
+    @Html.TextBoxFor(x => x.UserMail, new { @class = "form-control", @readonly = "true" })
+    <br />
+
+    <button class="btn btn-success">Kategori Güncelle</button>
+</div>}
