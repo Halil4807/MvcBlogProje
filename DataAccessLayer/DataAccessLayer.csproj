@@ -99,6 +99,10 @@
     <Compile Include="Migrations\202303121204161_mig_alltablo_add_Status.designer.cs">
       <DependentUpon>202303121204161_mig_alltablo_add_Status.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303172048184_mig_message_add_class.cs" />
+    <Compile Include="Migrations\202303172048184_mig_message_add_class.designer.cs">
+      <DependentUpon>202303172048184_mig_message_add_class.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -136,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303121204161_mig_alltablo_add_Status.resx">
       <DependentUpon>202303121204161_mig_alltablo_add_Status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303172048184_mig_message_add_class.resx">
+      <DependentUpon>202303172048184_mig_message_add_class.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
