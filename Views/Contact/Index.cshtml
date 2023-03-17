@@ -1,4 +1,5 @@
-﻿
+﻿@using EntityLayer.Concrete
+@model List<Contact>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -51,10 +52,10 @@
                             </a>
                         </li>
                         @*<li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-file-alt"></i> Taslaklar
-                            </a>
-                        </li>*@
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-file-alt"></i> Taslaklar
+                                </a>
+                            </li>*@
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="fas fa-filter"></i> Spam
@@ -123,6 +124,7 @@
                     <!-- /.card-tools -->
                 </div>
                 <!-- /.card-header -->
+
                 <div class="card-body p-0">
                     <div class="mailbox-controls">
                         <!-- Check all button -->
@@ -148,52 +150,57 @@
                     </div>
                     <div class="table-responsive mailbox-messages">
                         <table class="table table-hover table-striped">
+
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="icheck-primary">
-                                            <input type="checkbox" value="" id="check1">
-                                            <label for="check1"></label>
-                                        </div>
-                                    </td>
-                                    <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
-                                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                                    <td class="mailbox-subject">
-                                        <b>AdminLTE 3.0 Issue</b> - Trying to find a solution to this problem...
-                                    </td>
-                                    <td class="mailbox-attachment"></td>
-                                    <td class="mailbox-date">5 mins ago</td>
-                                </tr>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <div class="icheck-primary">
+                                                <input type="checkbox" value="" id="@item.ContactID">
+                                                <label for="@item.ContactID"></label>
+                                            </div>
+                                        </td>
+                                        <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
+                                        <td class="mailbox-name"><a href="read-mail.html">@item.UserName</a></td>
+                                        <td class="mailbox-subject">
+                                            <b>@item.Subject</b> - @item.Message.Substring(0,75)...
+                                        </td>
+                                        <td class="mailbox-date">5 mins ago</td>
+                                    </tr>
+                                }
                             </tbody>
+
                         </table>
                         <!-- /.table -->
                     </div>
                     <!-- /.mail-box-messages -->
                 </div>
+
                 <!-- /.card-body -->
                 <!--<div class="card-footer p-0">
-                    <div class="mailbox-controls">-->
-                        <!-- Check all button -->
-                        <!--<button type="button" class="btn btn-default btn-sm checkbox-toggle">
-                            <i class="far fa-square"></i>
-                        </button>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
-                            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
-                            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
-                        </div>-->
-                        <!-- /.btn-group -->
-                        <!--<button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
-                        <div class="float-right">
-                            1-50/200
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
-                                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
-                            </div>-->
-                            <!-- /.btn-group -->
-                        <!--</div>-->
-                        <!-- /.float-right -->
-                    <!--</div>
+                <div class="mailbox-controls">-->
+                <!-- Check all button -->
+                <!--<button type="button" class="btn btn-default btn-sm checkbox-toggle">
+                    <i class="far fa-square"></i>
+                </button>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
+                </div>-->
+                <!-- /.btn-group -->
+                <!--<button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
+                <div class="float-right">
+                    1-50/200
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
+                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
+                    </div>-->
+                <!-- /.btn-group -->
+                <!--</div>-->
+                <!-- /.float-right -->
+                <!--</div>
                 </div>-->
             </div>
             <!-- /.card -->
