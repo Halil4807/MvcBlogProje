@@ -2337,6 +2337,7 @@
     <Content Include="Views\About\AddAboutPartial.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Contact\GetContactDetails.cshtml" />
+    <Content Include="Views\Contact\MailMenuPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

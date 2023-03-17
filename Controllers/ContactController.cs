@@ -24,5 +24,9 @@ namespace MvcBlogProje.Controllers
             var ContactDetail = cm.GetById(id);
             return View(ContactDetail);
         }
+        public PartialViewResult MailMenuPartial()
+        {
+            return PartialView();
+        }
     }
 }
