@@ -24,6 +24,13 @@ namespace MvcBlogProje.Controllers
             var messagelist = mm.GetListSendbox();
             return View(messagelist);
         }
+
+        public ActionResult GetMessageDetails(int id)
+        {
+            var value = mm.GetById(id);
+            return View(value);
+        }
+
         [HttpGet]
         public ActionResult NewMessage()
         {
