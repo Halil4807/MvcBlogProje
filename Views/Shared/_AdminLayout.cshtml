@@ -27,7 +27,15 @@
     <!-- Tablo with Search-->
     <link rel="stylesheet" href="~/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="~/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+
+    <!-- TextArea-->
+    <link rel="stylesheet" href="~/plugins/summernote/summernote-bs4.css">
+    <script src="~/plugins/summernote/summernote.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+
+
+
 <!--
 BODY TAG OPTIONS:
 =================
@@ -235,6 +243,17 @@ to get the desired effect
     <script src="~/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="~/dist/js/demo.js"></script>
+
+
+    <!-- TextArea -->
+    <script src="~/plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- Page Script -->
+    <script>
+        $(function () {
+            //Add text editor
+            $('#compose-textarea').summernote()
+        })</script>
+
     <!-- page script -->
     <script>
         $(function () {
