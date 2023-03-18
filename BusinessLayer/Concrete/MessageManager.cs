@@ -25,7 +25,7 @@ namespace BusinessLayer.Concrete
 
         public List<Message> GetList()
         {
-            throw new NotImplementedException();
+            return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com");
         }
 
         public void MessageAddBL(Message message)
