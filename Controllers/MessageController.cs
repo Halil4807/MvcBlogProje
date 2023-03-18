@@ -14,7 +14,8 @@ namespace MvcBlogProje.Controllers
         MessageManager mm = new MessageManager(new EfMessageDal());
         public ActionResult Inbox()
         {
-            return View();
+            var messagelist = mm.GetList();
+            return View(messagelist);
         }
     }
 }
