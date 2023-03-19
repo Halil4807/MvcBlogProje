@@ -45,6 +45,7 @@ namespace MvcBlogProje.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult NewMessage(Message message)
         {
             MessageValidator messagevalidar = new MessageValidator();
