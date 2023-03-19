@@ -35,6 +35,9 @@
 
     <!-- Error Sayfası-->
     <link type="text/css" rel="stylesheet" href="~/plugins/Error-Page/css/style.css" />
+
+    <!-- Galeri-->
+    <link rel="stylesheet" href="~/plugins/ekko-lightbox/ekko-lightbox.css">
 </head>
 
 
@@ -225,16 +228,13 @@ to get the desired effect
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
     <script src="~/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap -->
     <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE -->
     <script src="~/dist/js/adminlte.js"></script>
 
     <!-- OPTIONAL SCRIPTS -->
     <script src="~/plugins/chart.js/Chart.min.js"></script>
     <script src="~/dist/js/demo.js"></script>
     <script src="~/dist/js/pages/dashboard3.js"></script>
-
 
     <!-- DataTables -->
     <script src="~/plugins/datatables/jquery.dataTables.min.js"></script>
@@ -245,10 +245,30 @@ to get the desired effect
     <script src="~/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="~/dist/js/demo.js"></script>
-
-
     <!-- TextArea -->
     <script src="~/plugins/summernote/summernote-bs4.min.js"></script>
+
+    <!-- Galeri -->
+    <script src="~/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+    <script src="~/plugins/filterizr/jquery.filterizr.min.js"></script>
+    <!-- Page specific script -->
+    <script>
+        $(function () {
+            $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+                event.preventDefault();
+                $(this).ekkoLightbox({
+                    alwaysShowClose: true
+                });
+            });
+
+            $('.filter-container').filterizr({ gutterPixels: 3 });
+            $('.btn[data-filter]').on('click', function () {
+                $('.btn[data-filter]').removeClass('active');
+                $(this).addClass('active');
+            });
+        })</script>
+
     <!-- Page Script -->
     <script>
         $(function () {

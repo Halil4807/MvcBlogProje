@@ -103,3 +103,5 @@ C:\Users\halil\source\repos\MvcBlogProje\bin\System.Threading.Tasks.Extensions.d
 C:\Users\halil\source\repos\MvcBlogProje\bin\FluentValidation.xml
 C:\Users\halil\source\repos\MvcBlogProje\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\halil\source\repos\MvcBlogProje\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\halil\source\repos\MvcBlogProje\obj\Debug\MvcBlogProje.Properties.Resources.resources
+C:\Users\halil\source\repos\MvcBlogProje\obj\Debug\MvcBlogProje.csproj.GenerateResource.cache
