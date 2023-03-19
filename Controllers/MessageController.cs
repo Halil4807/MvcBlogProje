@@ -7,6 +7,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EntityLayer.Concrete;
+using BusinessLayer.ValidationRules;
+using FluentValidation.Results;
 
 namespace MvcBlogProje.Controllers
 {
@@ -31,6 +33,12 @@ namespace MvcBlogProje.Controllers
             return View(value);
         }
 
+        public ActionResult GetSendMessageDetails(int id)
+        {
+            var value = mm.GetById(id);
+            return View(value);
+        }
+
         [HttpGet]
         public ActionResult NewMessage()
         {
@@ -39,6 +47,21 @@ namespace MvcBlogProje.Controllers
         [HttpPost]
         public ActionResult NewMessage(Message message)
         {
+            MessageValidator messagevalidar = new MessageValidator();
+            ValidationResult sonuc = messagevalidar.Validate(message);
+            message.MessageDate = DateTime.Now; //Şuanki tarihi MessageDate'e aktarma
+            if (sonuc.IsValid)
+            {
+                mm.MessageAddBL(message);
+                return RedirectToAction("Sendbox");
+            }
+            else
+            {
+                foreach (var item in sonuc.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
             return View();
         }
     }

@@ -23,3 +23,4 @@ C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Debug\DataAccessLay
 C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.mig_content_add_ContentStatus.resources
 C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.mig_alltablo_add_Status.resources
 C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.mig_message_add_class.resources
+C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.mig_contact_add_ContactDate.resources
