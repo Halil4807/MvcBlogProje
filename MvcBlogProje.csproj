@@ -143,6 +143,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\HeadingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
@@ -493,6 +494,10 @@
     <Content Include="plugins\ekko-lightbox\ekko-lightbox.css" />
     <Content Include="plugins\ekko-lightbox\ekko-lightbox.js" />
     <Content Include="plugins\ekko-lightbox\ekko-lightbox.min.js" />
+    <Content Include="plugins\Error-Page\css\style.css" />
+    <Content Include="plugins\Error-Page\img\bg.jpg" />
+    <Content Include="Views\ErrorPage\index.html" />
+    <Content Include="plugins\Error-Page\readme.txt" />
     <Content Include="plugins\fastclick\fastclick.js" />
     <Content Include="plugins\flag-icon-css\css\flag-icon.css" />
     <Content Include="plugins\flag-icon-css\css\flag-icon.min.css" />
@@ -2344,6 +2349,7 @@
     <Content Include="Views\Message\NewMessage.cshtml" />
     <Content Include="Views\Message\GetMessageDetails.cshtml" />
     <Content Include="Views\Message\GetSendMessageDetails.cshtml" />
+    <Content Include="Views\ErrorPage\Page404.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
