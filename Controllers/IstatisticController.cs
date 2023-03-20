@@ -12,17 +12,16 @@ namespace MvcBlogProje.Controllers
     {
         // GET: Istatistic
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        HeadingManager hm = new HeadingManager(new EfHeadingDal());
         WriterManager wm = new WriterManager(new EfWriterDal());
         public ActionResult Index()
         {
             //List<SelectListItem> categorylist = (from x in cm.GetList() select new SelectListItem { Text = x.CategoryName, Value = x.CategoryID.ToString() }).ToList();
             //ViewBag.categoriler = categorylist;
-            var categorylist= cm.GetList();
-            ViewBag.categoriler =  categorylist.Count();
-            foreach (var item in categorylist)
-            {
-
-            }
+            var categoryalllist= cm.GetList();
+            ViewBag.categoriler = categoryalllist.Count();
+            var categoryYazılımlist = hm.GetList(7);
+            ViewBag.yazılımcount = categoryYazılımlist.Count();
             return View();
         }
     }

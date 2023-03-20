@@ -28,6 +28,11 @@ namespace BusinessLayer.Concrete
             return _headingDal.List();
         }
 
+        public List<Heading> GetList(int id)
+        {
+            return _headingDal.List(x => x.CategoryID == 7);
+        }
+
         public void HeadingAddBL(Heading heading)
         {
             _headingDal.Insert(heading);
