@@ -22,10 +22,24 @@ namespace MvcBlogProje.Controllers
         [HttpPost]
         public ActionResult Index(Admin admin)
         {
+            //Context c = new Context();
+            //var adminuserinfo = c.Admins.FirstOrDefault(x => x.AdminUserName == admin.AdminUserName && x.AdminPassword == admin.AdminPassword);
+            //if (adminuserinfo != null)
+            //{
+            //    FormsAuthentication.SetAuthCookie(admin.AdminUserName, false);
+            //    Session["AdminUserName"] = admin.AdminUserName;
+            //    return RedirectToAction("Index", "AdminCategory");
+            //}
+            //else
+            //{
+            //    return RedirectToAction("Index");
+            //}
+
+            string username=adm.hashADM(admin.AdminUserName);
             if (adm.AdminLogin(admin))
             {
-                FormsAuthentication.SetAuthCookie(admin.AdminUserName, false);
-                Session["AdminMail"] = admin.AdminUserName;
+                FormsAuthentication.SetAuthCookie(username, false);
+                Session["AdminUserName"] = username;
                 return RedirectToAction("Index", "AdminCategory");
             }
             else
