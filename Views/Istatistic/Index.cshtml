@@ -56,12 +56,15 @@
                 <tr>
                     <td>4</td>
                     <td>En fazla yazıya sahip Kategori</td>
-                    <td></td>
+                    <td>
+                        Kategori Adı: @ViewBag.encokcategory <br />   
+                        Başlık Sayısı: @ViewBag.encokcategorysayisi
+                    </td>
                 </tr>
                 <tr>
                     <td>5</td>
                     <td>Kagerisi "True" ve "False" olanların sayısı</td>
-                    <td>True= 55, False=1</td>
+                    <td>True= @ViewBag.categorytrue<br />    False=@ViewBag.categoryfalse<br />    Fark=@ViewBag.categorydifference</td>
                 </tr>
             </table>
         </div>

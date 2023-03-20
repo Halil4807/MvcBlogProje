@@ -30,7 +30,7 @@ namespace BusinessLayer.Concrete
 
         public List<Heading> GetList(int id)
         {
-            return _headingDal.List(x => x.CategoryID == 7);
+            return _headingDal.List(x => x.CategoryID == id);
         }
 
         public void HeadingAddBL(Heading heading)

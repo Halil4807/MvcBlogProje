@@ -1,4 +1,6 @@
-﻿using DataAccessLayer.Concrete;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,6 +13,7 @@ namespace MvcBlogProje.Controllers
 {
     public class AdminController : Controller
     {
+        AdminManager adm = new AdminManager(new EfAdminDal());
         [HttpGet]
         public ActionResult Index()
         {
@@ -19,12 +22,10 @@ namespace MvcBlogProje.Controllers
         [HttpPost]
         public ActionResult Index(Admin admin)
         {
-            Context c = new Context();
-            var admininfo = c.Admins.FirstOrDefault(x => x.AdminUserName == admin.AdminUserName && x.AdminPassword == admin.AdminPassword);
-            if (admininfo != null)
+            if (adm.AdminLogin(admin))
             {
-                FormsAuthentication.SetAuthCookie(admininfo.AdminUserName, false);
-                Session["AdminMail"] = admininfo.AdminUserName;
+                FormsAuthentication.SetAuthCookie(admin.AdminUserName, false);
+                Session["AdminMail"] = admin.AdminUserName;
                 return RedirectToAction("Index", "AdminCategory");
             }
             else
