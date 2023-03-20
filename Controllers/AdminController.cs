@@ -23,8 +23,8 @@ namespace MvcBlogProje.Controllers
             var admininfo = c.Admins.FirstOrDefault(x => x.AdminUserName == admin.AdminUserName && x.AdminPassword == admin.AdminPassword);
             if (admininfo != null)
             {
-                FormsAuthentication.SetAuthCookie(admininfo.AdminMail, false);
-                Session["AdminMail"] = admininfo.AdminMail;
+                FormsAuthentication.SetAuthCookie(admininfo.AdminUserName, false);
+                Session["AdminMail"] = admininfo.AdminUserName;
                 return RedirectToAction("Index", "AdminCategory");
             }
             else

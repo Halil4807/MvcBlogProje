@@ -1,7 +1,5 @@
 ﻿
-@{
-    Layout = null;
-}
+@{ Layout = null; }
 
 <!DOCTYPE html>
 <html lang="en">
@@ -80,16 +78,19 @@ to get the desired effect
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
-                        <li class="nav-item has-treeview">
-                            <a href="/AdminCategory/Index" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Kategoriler
+                        @if (User.IsInRole("A"))
+                        {
+            <li class="nav-item has-treeview">
+                <a href="/AdminCategory/Index" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                        Kategoriler
 
-                                </p>
-                            </a>
+                    </p>
+                </a>
 
-                        </li>
+            </li>
+}
                         <li class="nav-item">
                             <a href="/Heading/Index" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
@@ -146,15 +147,6 @@ to get the desired effect
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                @*<i class="nav-icon fas fa-table"></i>*@
-                                <i class="fas fa-book fa-fw fa-xl margin-right-md fa-spin" style="color: var(--white); --fa-animation-duration:2s;"></i>
-                                <p>
-                                    Yazılar
-                                </p>
-                            </a>
-                        </li>
                         <li class="nav-item">
                             <a href="pages/calendar.html" class="nav-link">
                                 <i class="nav-icon fas fa-calendar-alt"></i>
@@ -165,8 +157,8 @@ to get the desired effect
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/gallery.html" class="nav-link">
-                                <i class="nav-icon far fa-image"></i>
+                            <a href="/Galeri/Index" class="nav-link">
+                                <i class="nav-icon far fa-image margin-right-md fa-spin"style="color: var(--white); --fa-animation-duration:2s;"></i>
                                 <p>
                                     Galeri
                                 </p>
