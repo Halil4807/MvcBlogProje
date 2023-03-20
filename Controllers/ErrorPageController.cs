@@ -21,11 +21,5 @@ namespace MvcBlogProje.Controllers
             Response.TrySkipIisCustomErrors = true;
             return View();
         }
-        public ActionResult Page401()
-        {
-            Response.StatusCode = 401;
-            Response.TrySkipIisCustomErrors = true;
-            return View();
-        }
     }
 }

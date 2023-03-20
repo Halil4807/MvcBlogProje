@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MvcBlogProje.Controllers
 {
@@ -22,6 +23,8 @@ namespace MvcBlogProje.Controllers
             var admininfo = c.Admins.FirstOrDefault(x => x.AdminUserName == admin.AdminUserName && x.AdminPassword == admin.AdminPassword);
             if (admininfo != null)
             {
+                FormsAuthentication.SetAuthCookie(admininfo.AdminMail, false);
+                Session["AdminMail"] = admininfo.AdminMail;
                 return RedirectToAction("Index", "AdminCategory");
             }
             else
