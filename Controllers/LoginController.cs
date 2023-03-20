@@ -8,8 +8,9 @@ using System.Web.Mvc;
 
 namespace MvcBlogProje.Controllers
 {
-    public class AdminController : Controller
+    public class LoginController : Controller
     {
+        // GET: Login
         [HttpGet]
         public ActionResult Index()
         {
@@ -20,9 +21,9 @@ namespace MvcBlogProje.Controllers
         {
             Context c = new Context();
             var admininfo = c.Admins.FirstOrDefault(x => x.AdminUserName == admin.AdminUserName && x.AdminPassword == admin.AdminPassword);
-            if (admininfo != null)
+            if (admininfo!=null)
             {
-                return RedirectToAction("Index", "AdminCategory");
+                return RedirectToAction("Index","AdminCategory");
             }
             else
             {

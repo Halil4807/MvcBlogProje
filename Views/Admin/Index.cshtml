@@ -31,24 +31,25 @@
                         <div class="img d-flex align-items-center justify-content-center" style="background-image: url(/dist/admin/images/bg.jpg);"></div>
                         <h3 class="text-center mb-0">Hoş Geldiniz :)</h3>
                         <p class="text-center">Lüften bilgilerinizi giriniz.</p>
-                        <form action="#" class="login-form">
-                            <div class="form-group">
-                                <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
-                                <input type="text" class="form-control" placeholder="Kullanıcı Adınız" required>
+                        @using (Html.BeginForm("Index", "Admin", FormMethod.Post))
+                        {
+                        <div class="form-group">
+                            <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
+                            <input type="text" class="form-control" name="AdminUserName" placeholder="Kullanıcı Adınız" required>
+                        </div>
+                        <div class="form-group">
+                            <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
+                            <input type="password" class="form-control" name="AdminPassword" placeholder="Parolanız" required>
+                        </div>
+                        <div class="form-group d-md-flex">
+                            <div class="w-100 text-md-right">
+                                <a href="#">Şifremi Unuttum!</a>
                             </div>
-                            <div class="form-group">
-                                <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
-                                <input type="password" class="form-control" placeholder="Parolanız" required>
-                            </div>
-                            <div class="form-group d-md-flex">
-                                <div class="w-100 text-md-right">
-                                    <a href="#">Şifremi Unuttum!</a>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn form-control btn-primary rounded submit px-3">Giriş Yap</button>
-                            </div>
-                        </form>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn form-control btn-primary rounded submit px-3">Giriş Yap</button>
+                        </div>
+                        }
                         <div class="w-100 text-center mt-4 text">
                             <a href="#">Anasayfaya dön</a>
                         </div>
