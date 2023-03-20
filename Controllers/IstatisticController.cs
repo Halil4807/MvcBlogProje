@@ -22,6 +22,16 @@ namespace MvcBlogProje.Controllers
             ViewBag.categoriler = categoryalllist.Count();
             var categoryYazılımlist = hm.GetList(7);
             ViewBag.yazılımcount = categoryYazılımlist.Count();
+            var yazarlist = wm.GetListBL();
+            int yazar_a_say = 0;
+            foreach (var item in yazarlist)
+            {
+                if (item.WriterName.ToLower().IndexOf("a")>=0)
+                {
+                    yazar_a_say++;
+                }
+            }
+            ViewBag.yazarsay = yazar_a_say;
             return View();
         }
     }
