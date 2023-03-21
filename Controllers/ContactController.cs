@@ -14,6 +14,8 @@ namespace MvcBlogProje.Controllers
         // GET: Contact
         ContactManager cm = new ContactManager(new EfContactDal());
         ContactValidator cv = new ContactValidator();
+        //Okunmamış Mesaj sayısını için
+        MessageManager mm = new MessageManager(new EfMessageDal());
         public ActionResult Index()
         {
             var contactvalues = cm.GetList();
@@ -26,6 +28,12 @@ namespace MvcBlogProje.Controllers
         }
         public PartialViewResult MailMenuPartial()
         {
+            var messagelist = mm.GetListSendbox();
+            ViewBag.SendMailCount = messagelist.Count();
+            var messagelistInbox = mm.GetListInbox();
+            ViewBag.InboxMailCount = messagelistInbox.Count();
+            var contactvalues = cm.GetList();
+            ViewBag.ContactMailCount = contactvalues.Count();
             return PartialView();
         }
     }
