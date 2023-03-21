@@ -42,5 +42,10 @@ namespace BusinessLayer.Concrete
         {
             return _contactDal.List();
         }
+
+        public List<Contact> GetListNotRead()
+        {
+            return _contactDal.List(x=>x.ContactRead == false);
+        }
     }
 }

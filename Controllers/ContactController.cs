@@ -28,11 +28,11 @@ namespace MvcBlogProje.Controllers
         }
         public PartialViewResult MailMenuPartial()
         {
-            var messagelist = mm.GetListSendbox();
-            ViewBag.SendMailCount = messagelist.Count();
-            var messagelistInbox = mm.GetListInbox();
+            var messagelistSend = mm.GetListSendboxNotRead();
+            ViewBag.SendMailCount = messagelistSend.Count();
+            var messagelistInbox = mm.GetListInboxNotRead();
             ViewBag.InboxMailCount = messagelistInbox.Count();
-            var contactvalues = cm.GetList();
+            var contactvalues = cm.GetListNotRead();
             ViewBag.ContactMailCount = contactvalues.Count();
             return PartialView();
         }

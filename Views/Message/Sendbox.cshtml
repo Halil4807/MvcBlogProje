@@ -85,15 +85,20 @@
                                         <td class="mailbox-name"><a href="/Message/GetSendMessageDetails/@item.MessageID">@item.ReceiverMail</a></td>
                                         <td class="mailbox-subject">
                                             @{ string nokta = "...";}
-                                            <b>@item.Subject</b> -
-                                            @if (item.MessageContent.Length <= 50)
+                                            @if (item.MessageRead)
                                             {
-                                                @item.MessageContent
+                                                @item.Subject 
                                             }
                                             else
                                             {
-                                                @item.MessageContent.Substring(0, 50) @nokta
-                                            }
+                                                <b>@item.Subject</b>
+                                            } -
+                                            @if (item.MessageContent.Length <= 50)
+                                            {
+                                        @item.MessageContent }
+                                                        else
+                                                        {
+                                        @item.MessageContent.Substring(0, 50) @nokta}
                                         </td>
                                         <td class="mailbox-date"> @item.MessageDate.ToString("dd-MMM-yyyy HH-mm")</td>
                                     </tr>

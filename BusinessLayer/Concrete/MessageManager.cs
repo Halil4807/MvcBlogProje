@@ -28,9 +28,19 @@ namespace BusinessLayer.Concrete
             return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com");
         }
 
+        public List<Message> GetListInboxNotRead()
+        {
+            return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com" && x.MessageRead == false);
+        }
+
         public List<Message> GetListSendbox()
         {
             return _messageDal.List(x => x.SenderMail == "admin@gmail.com");
+        }
+
+        public List<Message> GetListSendboxNotRead()
+        {
+            return _messageDal.List(x => x.SenderMail == "admin@gmail.com" && x.MessageRead == false);
         }
 
         public void MessageAddBL(Message message)
