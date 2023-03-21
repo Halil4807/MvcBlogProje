@@ -41,8 +41,10 @@ namespace MvcBlogProje.Roles
 
         public override string[] GetRolesForUser(string username)
         {
-            Context c = new Context();
-            var deger = c.Admins.FirstOrDefault(x => x.AdminUserName == username);
+            RoleManager role = new RoleManager(new EfAdminDal());
+            //Context c = new Context();
+            //var deger = c.Admins.FirstOrDefault(x => x.AdminUserName == username);
+            var deger = role.GetByUserName(username);
             return new string[] { deger.AdminRole };
         }
 
