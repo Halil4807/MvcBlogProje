@@ -24,6 +24,8 @@ namespace MvcBlogProje.Controllers
         public ActionResult GetContactDetails(int id)
         {
             var ContactDetail = cm.GetById(id);
+            ContactDetail.ContactRead = true;
+            cm.ContactUpdateBL(ContactDetail);
             return View(ContactDetail);
         }
         public PartialViewResult MailMenuPartial()

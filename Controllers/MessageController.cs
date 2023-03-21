@@ -30,12 +30,16 @@ namespace MvcBlogProje.Controllers
         public ActionResult GetMessageDetails(int id)
         {
             var value = mm.GetById(id);
+            value.MessageRead = true;
+            mm.MessageUpdateBL(value);
             return View(value);
         }
 
         public ActionResult GetSendMessageDetails(int id)
         {
             var value = mm.GetById(id);
+            value.MessageRead = true;
+            mm.MessageUpdateBL(value);
             return View(value);
         }
 
