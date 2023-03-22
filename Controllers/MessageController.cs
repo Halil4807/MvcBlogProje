@@ -16,6 +16,7 @@ namespace MvcBlogProje.Controllers
     {
         // GET: Message
         MessageManager mm = new MessageManager(new EfMessageDal());
+        MessageValidator messagevalidar = new MessageValidator();
         public ActionResult Inbox()
         {
             var messagelist = mm.GetListInbox();
@@ -52,7 +53,6 @@ namespace MvcBlogProje.Controllers
         [ValidateInput(false)]
         public ActionResult NewMessage(Message message)
         {
-            MessageValidator messagevalidar = new MessageValidator();
             ValidationResult sonuc = messagevalidar.Validate(message);
             message.MessageDate = DateTime.Now; //Şuanki tarihi MessageDate'e aktarma
             if (sonuc.IsValid)
