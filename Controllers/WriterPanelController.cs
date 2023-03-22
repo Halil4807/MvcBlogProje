@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,15 +13,31 @@ namespace MvcBlogProje.Controllers
     {
         // GET: WriterPanel
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
+        CategoryManager cm = new CategoryManager(new EfCategoryDal());
         public ActionResult WriterProfile()
         {
             return View();
         }
-        public ActionResult MyHeading(int id)
+        public ActionResult MyHeading()
         {
-            id = 4;
+            int id = 4;
             var headingvalue = hm.GetListByWriter(id);
             return View(headingvalue);
+        }
+        [HttpGet]
+        public ActionResult NewHeading()
+        {
+            List<SelectListItem> categorylist = (from x in cm.GetList() select new SelectListItem { Text = x.CategoryName, Value = x.CategoryID.ToString() }).ToList();
+            ViewBag.categoriler = categorylist;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult NewHeading(Heading heading)
+        {
+            heading.HeadingDate = DateTime.Now;
+            heading.WriterID = 4;
+            hm.HeadingAddBL(heading);
+            return RedirectToAction("MyHeading");
         }
     }
 }
