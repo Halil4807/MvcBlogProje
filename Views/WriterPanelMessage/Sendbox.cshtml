@@ -1,12 +1,7 @@
 ﻿@using EntityLayer.Concrete
 @model List<Message>
-
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_WriterLayout.cshtml";
-}
-
-
+@{ ViewBag.Title = "Sendbox";
+                Layout = "~/Views/Shared/_WriterLayout.cshtml"; }
 
 <!-- Content Wrapper. Contains page content -->
 <!-- Content Header (Page header) -->
@@ -14,12 +9,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Mesaj Sayfası</h1>
+                <h1>Gönderilen Mesaj Sayfası</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">WriterPanelMessage</a></li>
-                    <li class="breadcrumb-item active">Inbox</li>
+                    <li class="breadcrumb-item active">Sendbox</li>
                 </ol>
             </div>
         </div>
@@ -33,7 +28,7 @@
         <div class="col-md-9">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h3 class="card-title">Gelen Mesajlar</h3>
+                    <h3 class="card-title">Gönderilen Mesajlar</h3>
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
                             <input type="text" class="form-control" placeholder="Mail Arama">
@@ -77,33 +72,32 @@
                             <tbody>
                                 @foreach (var item in Model)
                                 {
-                                    <tr>
-                                        <td>
-                                            <div class="icheck-primary">
-                                                <input type="checkbox" value="" id="@item.MessageID">
-                                                <label for="@item.MessageID"></label>
-                                            </div>
-                                        </td>
-                                        <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
-                                        <td class="mailbox-name"><a href="/Message/GetMessageDetails/@item.MessageID">@item.SenderMail</a></td>
-                                        <td class="mailbox-subject">
-                                            @{ string nokta = "...";}
-                                            @if (item.MessageRead)
-                                            {
-                                                @item.Subject }
-                                            else
-                                            {
-                                                <b>@item.Subject</b>} -
-
-                                            @if (item.MessageContent.Length <= 50)
-                                            {
-                                                @item.MessageContent }
-                                            else
-                                            {
-                                                @item.MessageContent.Substring(0, 50) @nokta}
-                                        </td>
-                                        <td class="mailbox-date"> @item.MessageDate.ToString("dd-MMM-yyyy HH-mm")</td>
-                                    </tr>
+                    <tr>
+                        <td>
+                            <div class="icheck-primary">
+                                <input type="checkbox" value="" id="@item.MessageID">
+                                <label for="@item.MessageID"></label>
+                            </div>
+                        </td>
+                        <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
+                        <td class="mailbox-name"><a href="/Message/GetSendMessageDetails/@item.MessageID">@item.ReceiverMail</a></td>
+                        <td class="mailbox-subject">
+                            @{ string nokta = "...";}
+                            @if (item.MessageRead)
+                            {
+            @item.Subject }
+        else
+        {
+    <b>@item.Subject</b>} -
+                            @if (item.MessageContent.Length <= 50)
+                            {
+            @item.MessageContent }
+        else
+        {
+    @item.MessageContent.Substring(0, 50) @nokta}
+                        </td>
+                        <td class="mailbox-date"> @item.MessageDate.ToString("dd-MMM-yyyy HH-mm")</td>
+                    </tr>
 }
                             </tbody>
 
@@ -115,29 +109,29 @@
 
                 <!-- /.card-body -->
                 <!--<div class="card-footer p-0">
-                <div class="mailbox-controls">-->
+            <div class="mailbox-controls">-->
                 <!-- Check all button -->
                 <!--<button type="button" class="btn btn-default btn-sm checkbox-toggle">
-                    <i class="far fa-square"></i>
-                </button>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
-                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
-                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
-                </div>-->
+                <i class="far fa-square"></i>
+            </button>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
+                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
+                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
+            </div>-->
                 <!-- /.btn-group -->
                 <!--<button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
-                <div class="float-right">
-                    1-50/200
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
-                    </div>-->
+            <div class="float-right">
+                1-50/200
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
+                </div>-->
                 <!-- /.btn-group -->
                 <!--</div>-->
                 <!-- /.float-right -->
                 <!--</div>
-                </div>-->
+            </div>-->
             </div>
             <!-- /.card -->
         </div>

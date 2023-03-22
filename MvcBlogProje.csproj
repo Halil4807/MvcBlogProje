@@ -2517,6 +2517,8 @@
     <Content Include="Views\WriterPanel\NewHeading.cshtml" />
     <Content Include="Views\WriterPanel\EditHeading.cshtml" />
     <Content Include="Views\WriterPanelMessage\Index.cshtml" />
+    <Content Include="Views\WriterPanelMessage\WriterMailMenuPartial.cshtml" />
+    <Content Include="Views\WriterPanelMessage\Sendbox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
