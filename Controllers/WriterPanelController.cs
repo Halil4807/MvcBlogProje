@@ -54,5 +54,12 @@ namespace MvcBlogProje.Controllers
             hm.HeadingUpdateBL(heading);
             return RedirectToAction("MyHeading");
         }
+        public ActionResult DeleteHeading(int id)
+        {
+            var HeadingValue = hm.GetById(id);
+            HeadingValue.HeadingStatus = false;
+            hm.HeadingDeleteBL(HeadingValue);
+            return RedirectToAction("MyHeading");
+        }
     }
 }

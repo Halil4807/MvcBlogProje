@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete
 
         public List<Heading> GetListByWriter(int id)
         {
-            return _headingDal.List(x => x.WriterID == id);
+            return _headingDal.List(x => x.WriterID == id & x.HeadingStatus == true);
         }
 
         public void HeadingAddBL(Heading heading)
