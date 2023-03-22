@@ -2519,6 +2519,9 @@
     <Content Include="Views\WriterPanelMessage\Index.cshtml" />
     <Content Include="Views\WriterPanelMessage\WriterMailMenuPartial.cshtml" />
     <Content Include="Views\WriterPanelMessage\Sendbox.cshtml" />
+    <Content Include="Views\WriterPanelMessage\GetMessageDetails.cshtml" />
+    <Content Include="Views\WriterPanelMessage\GetSendMessageDetails.cshtml" />
+    <Content Include="Views\WriterPanelMessage\NewMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -54,6 +54,7 @@ namespace MvcBlogProje.Controllers
         public ActionResult NewMessage(Message message)
         {
             ValidationResult sonuc = messagevalidar.Validate(message);
+            message.SenderMail = "admin@gmail.com";
             message.MessageDate = DateTime.Now; //Şuanki tarihi MessageDate'e aktarma
             if (sonuc.IsValid)
             {

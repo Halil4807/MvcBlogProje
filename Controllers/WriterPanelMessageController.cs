@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +33,46 @@ namespace MvcBlogProje.Controllers
         {
             var messagelist = mm.GetListSendbox();
             return View(messagelist);
+        }
+        public ActionResult GetMessageDetails(int id)
+        {
+            var value = mm.GetById(id);
+            value.MessageRead = true;
+            mm.MessageUpdateBL(value);
+            return View(value);
+        }
+
+        public ActionResult GetSendMessageDetails(int id)
+        {
+            var value = mm.GetById(id);
+            value.MessageRead = true;
+            mm.MessageUpdateBL(value);
+            return View(value);
+        }
+        [HttpGet]
+        public ActionResult NewMessage()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult NewMessage(Message message)
+        {
+            ValidationResult sonuc = messagevalidar.Validate(message);
+            message.MessageDate = DateTime.Now; //Şuanki tarihi MessageDate'e aktarma
+            if (sonuc.IsValid)
+            {
+                mm.MessageAddBL(message);
+                return RedirectToAction("Sendbox");
+            }
+            else
+            {
+                foreach (var item in sonuc.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
         }
     }
 }
