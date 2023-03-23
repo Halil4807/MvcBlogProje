@@ -60,7 +60,7 @@ namespace MvcBlogProje.Controllers
                 string username = adm.hashADM(admin.AdminUserName);
                 FormsAuthentication.SetAuthCookie(username, false);
                 Session["AdminUserName"] = username;
-                return RedirectToAction("Index", "AdminCategory");
+                return RedirectToAction("WriterProfile", "WriterPanel");
             }
             else
             {
