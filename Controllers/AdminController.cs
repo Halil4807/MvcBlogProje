@@ -14,6 +14,7 @@ namespace MvcBlogProje.Controllers
     public class AdminController : Controller
     {
         AdminManager adm = new AdminManager(new EfAdminDal());
+        WriterManager wm = new WriterManager(new EfWriterDal());
         [HttpGet]
         public ActionResult Index()
         {
@@ -53,18 +54,18 @@ namespace MvcBlogProje.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult WriterLogin(Admin admin)
+        public ActionResult WriterLogin(Writer writer)
         {
-            if (adm.AdminLogin(admin))
+            if (wm.WriterLogin(writer))
             {
-                string username = adm.hashADM(admin.AdminUserName);
+                string username = adm.hashADM(writer.WriterMail);
                 FormsAuthentication.SetAuthCookie(username, false);
                 Session["AdminUserName"] = username;
                 return RedirectToAction("WriterProfile", "WriterPanel");
             }
             else
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("WriterLogin");
             }
         }
     }

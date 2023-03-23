@@ -44,10 +44,10 @@ namespace BusinessLayer.Concrete
             _writerDal.Update(writer);
             //throw new NotImplementedException();
         }
-        public bool WriterLogin(Admin admin)
+        public bool WriterLogin(Writer writer)
         {
-            string resultusername = hashADM(admin.AdminUserName);
-            string resultpassword = hashADM(admin.AdminPassword);
+            string resultusername = hashADM(writer.WriterMail);
+            string resultpassword = hashADM(writer.WriterPassword);
             var admininfo = _writerDal.Get(x => x.WriterName == resultusername && x.WriterPassword == resultpassword);
             if (admininfo != null)
             {
