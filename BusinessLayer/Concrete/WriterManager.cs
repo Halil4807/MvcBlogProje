@@ -48,7 +48,7 @@ namespace BusinessLayer.Concrete
         {
             string resultusername = hashADM(writer.WriterMail);
             string resultpassword = hashADM(writer.WriterPassword);
-            var admininfo = _writerDal.Get(x => x.WriterName == resultusername && x.WriterPassword == resultpassword);
+            var admininfo = _writerDal.Get(x => x.WriterMail == resultusername && x.WriterPassword == resultpassword);
             if (admininfo != null)
             {
                 return true;

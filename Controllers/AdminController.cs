@@ -49,6 +49,7 @@ namespace MvcBlogProje.Controllers
                 return RedirectToAction("Index");
             }
         }
+        [HttpGet]
         public ActionResult WriterLogin()
         {
             return View();
@@ -58,9 +59,9 @@ namespace MvcBlogProje.Controllers
         {
             if (wm.WriterLogin(writer))
             {
-                string username = adm.hashADM(writer.WriterMail);
-                FormsAuthentication.SetAuthCookie(username, false);
-                Session["AdminUserName"] = username;
+                //string username = adm.hashADM(writer.WriterMail);
+                //FormsAuthentication.SetAuthCookie(username, false);
+                //Session["AdminUserName"] = username;
                 return RedirectToAction("WriterProfile", "WriterPanel");
             }
             else
