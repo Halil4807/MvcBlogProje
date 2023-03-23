@@ -14,5 +14,6 @@ namespace BusinessLayer.Abstract
         void WriterUpdateBL(Writer writer);
         void WriterDeleteBL(Writer writer);
         Writer GetByIDBL(int id);
+        bool WriterLogin(Admin admin);
     }
 }

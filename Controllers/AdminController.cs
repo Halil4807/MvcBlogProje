@@ -35,9 +35,29 @@ namespace MvcBlogProje.Controllers
             //    return RedirectToAction("Index");
             //}
 
-            string username=adm.hashADM(admin.AdminUserName);
+            
             if (adm.AdminLogin(admin))
             {
+                string username=adm.hashADM(admin.AdminUserName);
+                FormsAuthentication.SetAuthCookie(username, false);
+                Session["AdminUserName"] = username;
+                return RedirectToAction("Index", "AdminCategory");
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+        public ActionResult WriterLogin()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult WriterLogin(Admin admin)
+        {
+            if (adm.AdminLogin(admin))
+            {
+                string username = adm.hashADM(admin.AdminUserName);
                 FormsAuthentication.SetAuthCookie(username, false);
                 Session["AdminUserName"] = username;
                 return RedirectToAction("Index", "AdminCategory");
