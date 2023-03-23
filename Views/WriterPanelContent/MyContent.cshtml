@@ -1,8 +1,7 @@
 ﻿@using EntityLayer.Concrete
-@model List<Content>
 @{
-    ViewBag.Title = "ContentByWriter";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "MyContent";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
 
@@ -20,8 +19,8 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item">Content</li>
-                    <li class="breadcrumb-item active">ContentByWriter</li>
+                    <li class="breadcrumb-item">WriterPanelContent</li>
+                    <li class="breadcrumb-item active">MyContent</li>
                 </ol>
             </div>
         </div>
@@ -50,19 +49,16 @@
                                     {
                                         <div class="time-label">
                                             <span class="bg-success">@item.ContentDate.ToString("dd-MMM-yyyy HH-mm")</span>
-                                        </div>
-                                        <!-- /.timeline-label -->
-                                        <!-- timeline item -->
+                                        </div> <!-- /.timeline-label --> <!-- timeline item -->
                                         <div>
                                             <i class="fas fa-comment bg-yellow"></i>
                                             <div class="timeline-item">
-                                                <h3 class="timeline-header"><a href="/Content/ContentByHeading/@item.HeadingID">@item.Heading.HeadingName</a></h3>
+                                                <h3 class="timeline-header">@item.Heading.HeadingName</h3>
                                                 <div class="timeline-body">
                                                     @item.ContentValue
                                                 </div>
                                             </div>
-                                        </div>
-                                    }
+                                        </div>}
 
 
                                     <!-- END timeline item -->
@@ -76,23 +72,7 @@
                 <!-- /.content -->
             </div>
             <!-- ./wrapper -->
-
-
         </div>
-
-
-        @*--- Sayfalama Alanı----*@
-        <!-- /.card-body -->
-        <!--<div class="card-footer">
-            <nav aria-label="Contacts Page Navigation">
-                <ul class="pagination justify-content-center m-0">
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                </ul>
-            </nav>
-        </div>-->
-        <!-- /.card-footer -->
-
     </div>
     <!-- /.card -->
 </section>
