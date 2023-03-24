@@ -59,9 +59,9 @@ namespace MvcBlogProje.Controllers
         {
             if (wm.WriterLogin(writer))
             {
-                //string username = adm.hashADM(writer.WriterMail);
-                //FormsAuthentication.SetAuthCookie(username, false);
-                //Session["AdminUserName"] = username;
+                string writermail = wm.hashADM(writer.WriterMail);
+                FormsAuthentication.SetAuthCookie(writermail, false);
+                Session["WriterMail"] = writermail;
                 return RedirectToAction("WriterProfile", "WriterPanel");
             }
             else

@@ -14,7 +14,10 @@ namespace MvcBlogProje.Controllers
         ContentManager cm = new ContentManager(new EfContentDal());
         public ActionResult MyContent()
         {
-            var contentvalue = cm.GetListWriterIDBL(4);
+            int id = 4;
+            string parametre = (string)Session["WriterMail"];
+            ViewBag.mail = parametre;
+            var contentvalue = cm.GetListWriterIDBL(id);
             return View(contentvalue);
         }
     }
