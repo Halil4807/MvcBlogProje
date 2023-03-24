@@ -24,7 +24,7 @@ namespace MvcBlogProje.Controllers
         }
         public ActionResult Sendbox()
         {
-            var messagelist = mm.GetListSendbox();
+            var messagelist = mm.GetListSendbox((string)Session["WriterMail"]);
             return View(messagelist);
         }
 

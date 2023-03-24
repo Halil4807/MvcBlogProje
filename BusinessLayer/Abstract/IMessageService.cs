@@ -11,7 +11,7 @@ namespace BusinessLayer.Abstract
     {
         List<Message> GetListInbox();
         List<Message> GetListInboxNotRead();
-        List<Message> GetListSendbox();
+        List<Message> GetListSendbox(string mail);
         List<Message> GetListSendboxNotRead();
         void MessageAddBL(Message message);
         Message GetById(int id);

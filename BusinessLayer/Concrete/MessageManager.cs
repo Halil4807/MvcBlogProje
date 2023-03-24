@@ -33,9 +33,9 @@ namespace BusinessLayer.Concrete
             return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com" && x.MessageRead == false);
         }
 
-        public List<Message> GetListSendbox()
+        public List<Message> GetListSendbox(string mail)
         {
-            return _messageDal.List(x => x.SenderMail == "admin@gmail.com");
+            return _messageDal.List(x => x.SenderMail == mail);
         }
 
         public List<Message> GetListSendboxNotRead()
