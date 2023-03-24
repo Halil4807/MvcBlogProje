@@ -11,6 +11,7 @@ using System.Web.Security;
 
 namespace MvcBlogProje.Controllers
 {
+    [AllowAnonymous]
     public class AdminController : Controller
     {
         AdminManager adm = new AdminManager(new EfAdminDal());

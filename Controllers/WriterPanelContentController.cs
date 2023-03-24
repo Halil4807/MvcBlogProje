@@ -15,9 +15,8 @@ namespace MvcBlogProje.Controllers
         WriterManager wm = new WriterManager(new EfWriterDal());
         public ActionResult MyContent()
         {
-            int id = 4;
             string parametre = (string)Session["WriterMail"];
-            id = wm.GetWriterIdBL(parametre);
+            int id = wm.GetWriterIdBL(parametre);
             var contentvalue = cm.GetListWriterIDBL(id);
             return View(contentvalue);
         }
