@@ -12,11 +12,12 @@ namespace MvcBlogProje.Controllers
     {
         // GET: WriterPanelContent
         ContentManager cm = new ContentManager(new EfContentDal());
+        WriterManager wm = new WriterManager(new EfWriterDal());
         public ActionResult MyContent()
         {
             int id = 4;
             string parametre = (string)Session["WriterMail"];
-            ViewBag.mail = parametre;
+            id = wm.GetWriterIdBL(parametre);
             var contentvalue = cm.GetListWriterIDBL(id);
             return View(contentvalue);
         }
