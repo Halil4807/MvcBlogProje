@@ -23,9 +23,9 @@ namespace BusinessLayer.Concrete
             return _messageDal.Get(x => x.MessageID == id);
         }
 
-        public List<Message> GetListInbox()
+        public List<Message> GetListInbox(string mail)
         {
-            return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com");
+            return _messageDal.List(x => x.ReceiverMail == mail);
         }
 
         public List<Message> GetListInboxNotRead()

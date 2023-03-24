@@ -18,7 +18,7 @@ namespace MvcBlogProje.Controllers
         MessageValidator messagevalidar = new MessageValidator();
         public ActionResult Index()
         {
-            var messagelist = mm.GetListInbox();
+            var messagelist = mm.GetListInbox((string)Session["WriterMail"]);
             return View(messagelist);
         }
         public PartialViewResult WriterMailMenuPartial()

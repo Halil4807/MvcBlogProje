@@ -19,12 +19,12 @@ namespace MvcBlogProje.Controllers
         MessageValidator messagevalidar = new MessageValidator();
         public ActionResult Inbox()
         {
-            var messagelist = mm.GetListInbox();
+            var messagelist = mm.GetListInbox((string)Session["AdminUserName"]);
             return View(messagelist);
         }
         public ActionResult Sendbox()
         {
-            var messagelist = mm.GetListSendbox((string)Session["WriterMail"]);
+            var messagelist = mm.GetListSendbox((string)Session["AdminUserName"]);
             return View(messagelist);
         }
 
