@@ -70,5 +70,10 @@ namespace MvcBlogProje.Controllers
                 return RedirectToAction("WriterLogin");
             }
         }
+        public ActionResult Logout()
+        {
+            Session.RemoveAll();
+            return RedirectToAction("WriterLogin");
+        }
     }
 }
