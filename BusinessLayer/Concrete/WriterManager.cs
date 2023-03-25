@@ -46,7 +46,8 @@ namespace BusinessLayer.Concrete
         }
         public bool WriterLogin(Writer writer)
         {
-            string resultusername = hashADM(writer.WriterMail);
+            //string resultusername = hashADM(writer.WriterMail);
+            string resultusername = writer.WriterMail;
             string resultpassword = hashADM(writer.WriterPassword);
             var admininfo = _writerDal.Get(x => x.WriterMail == resultusername && x.WriterPassword == resultpassword);
             if (admininfo != null)

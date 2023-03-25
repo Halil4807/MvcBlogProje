@@ -40,7 +40,8 @@ namespace MvcBlogProje.Controllers
             
             if (adm.AdminLogin(admin))
             {
-                string username=adm.hashADM(admin.AdminUserName);
+                //string username=adm.hashADM(admin.AdminUserName);
+                string username = admin.AdminUserName;
                 FormsAuthentication.SetAuthCookie(username, false);
                 Session["AdminUserName"] = username;
                 return RedirectToAction("Index", "AdminCategory");
@@ -60,9 +61,10 @@ namespace MvcBlogProje.Controllers
         {
             if (wm.WriterLogin(writer))
             {
-                string writermail = wm.hashADM(writer.WriterMail);
-                FormsAuthentication.SetAuthCookie(writermail, false);
-                Session["WriterMail"] = writermail;
+                //string writermail = wm.hashADM(writer.WriterMail);
+                string writermail = writer.WriterMail;
+                FormsAuthentication.SetAuthCookie(writer.WriterMail, false);
+                Session["WriterMail"] = writer.WriterMail;
                 return RedirectToAction("WriterProfile", "WriterPanel");
             }
             else

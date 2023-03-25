@@ -31,7 +31,8 @@ namespace BusinessLayer.Concrete
 
         public bool AdminLogin(Admin admin)
         {
-            string resultusername = hashADM(admin.AdminUserName);
+            //string resultusername = hashADM(admin.AdminUserName);
+            string resultusername = admin.AdminUserName;
             string resultpassword = hashADM(admin.AdminPassword);
             var admininfo= _adminDal.Get(x => x.AdminUserName == resultusername && x.AdminPassword == resultpassword);
             if(admininfo!=null)
