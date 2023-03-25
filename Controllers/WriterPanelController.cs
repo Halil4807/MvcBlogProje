@@ -36,7 +36,7 @@ namespace MvcBlogProje.Controllers
         public ActionResult NewHeading(Heading heading)
         {
             heading.HeadingDate = DateTime.Now;
-            heading.WriterID = 4;
+            heading.WriterID = wm.GetWriterIdBL((string)Session["WriterMail"]);
             heading.HeadingStatus = true;
             hm.HeadingAddBL(heading);
             return RedirectToAction("MyHeading");
