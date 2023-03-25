@@ -14,13 +14,14 @@ namespace MvcBlogProje.Controllers
         // GET: WriterPanel
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        WriterManager wm = new WriterManager(new EfWriterDal());
         public ActionResult WriterProfile()
         {
             return View();
         }
         public ActionResult MyHeading()
         {
-            int id = 4;
+            int id = wm.GetWriterIdBL((string)Session["WriterMail"]);
             var headingvalue = hm.GetListByWriter(id);
             return View(headingvalue);
         }

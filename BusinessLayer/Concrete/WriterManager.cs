@@ -77,7 +77,8 @@ namespace BusinessLayer.Concrete
 
         public int GetWriterIdBL(string writermail)
         {
-            return ((int)_writerDal.Get(x => x.WriterMail == writermail).WriterID);
+            int result = _writerDal.Get(x => x.WriterMail == writermail).WriterID;
+            return result;
         }
     }
 }
