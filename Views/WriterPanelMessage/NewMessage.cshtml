@@ -29,6 +29,7 @@
         <div class="col-md-9">
             @using (Html.BeginForm("NewMessage", "WriterPanelMessage", FormMethod.Post))
             {
+                @Html.Hidden("SenderMail",@Session["WriterMail"])
 <div class="card card-primary card-outline">
     <div class="card-header">
         <h3 class="card-title">Yeni Mesaj Oluştur</h3>

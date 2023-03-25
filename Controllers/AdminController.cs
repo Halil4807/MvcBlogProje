@@ -73,6 +73,7 @@ namespace MvcBlogProje.Controllers
         public ActionResult Logout()
         {
             Session.RemoveAll();
+            FormsAuthentication.SignOut();
             return RedirectToAction("WriterLogin");
         }
     }

@@ -30,9 +30,9 @@ namespace MvcBlogProje.Controllers
         }
         public PartialViewResult MailMenuPartial()
         {
-            var messagelistSend = mm.GetListSendboxNotRead();
+            var messagelistSend = mm.GetListSendboxNotRead((string)Session["AdminUserName"]);
             ViewBag.SendMailCount = messagelistSend.Count();
-            var messagelistInbox = mm.GetListInboxNotRead();
+            var messagelistInbox = mm.GetListInboxNotRead((string)Session["AdminUserName"]);
             ViewBag.InboxMailCount = messagelistInbox.Count();
             var contactvalues = cm.GetListNotRead();
             ViewBag.ContactMailCount = contactvalues.Count();

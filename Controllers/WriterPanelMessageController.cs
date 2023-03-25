@@ -23,9 +23,9 @@ namespace MvcBlogProje.Controllers
         }
         public PartialViewResult WriterMailMenuPartial()
         {
-            var messagelistSend = mm.GetListSendboxNotRead();
+            var messagelistSend = mm.GetListSendboxNotRead((string)Session["WriterMail"]);
             ViewBag.SendMailCount = messagelistSend.Count();
-            var messagelistInbox = mm.GetListInboxNotRead();
+            var messagelistInbox = mm.GetListInboxNotRead((string)Session["WriterMail"]);
             ViewBag.InboxMailCount = messagelistInbox.Count();
             return PartialView();
         }

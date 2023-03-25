@@ -28,9 +28,9 @@ namespace BusinessLayer.Concrete
             return _messageDal.List(x => x.ReceiverMail == mail);
         }
 
-        public List<Message> GetListInboxNotRead()
+        public List<Message> GetListInboxNotRead(string mail)
         {
-            return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com" && x.MessageRead == false);
+            return _messageDal.List(x => x.ReceiverMail == mail && x.MessageRead == false);
         }
 
         public List<Message> GetListSendbox(string mail)
@@ -38,9 +38,9 @@ namespace BusinessLayer.Concrete
             return _messageDal.List(x => x.SenderMail == mail);
         }
 
-        public List<Message> GetListSendboxNotRead()
+        public List<Message> GetListSendboxNotRead(string mail)
         {
-            return _messageDal.List(x => x.SenderMail == "admin@gmail.com" && x.MessageRead == false);
+            return _messageDal.List(x => x.SenderMail == mail && x.MessageRead == false);
         }
 
         public void MessageAddBL(Message message)
