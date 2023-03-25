@@ -40,7 +40,7 @@ namespace BusinessLayer.Concrete
 
         public List<Content> GetListBL()
         {
-            throw new NotImplementedException();
+            return _contentDal.List();
         }
 
         public List<Content> GetListByIDBL(int id)
