@@ -22,12 +22,14 @@ namespace MvcBlogProje.Controllers
         {
             if (id == null)
             {
+                ViewBag.HeadingName = "Tüm Yorumlar";
                 var contentList = cm.GetListBL();
                 return PartialView(contentList);
             }
             else
             {
                 int value = (int)id;
+                ViewBag.HeadingName = hm.GetById(value).HeadingName;
                 var contentList = cm.GetListByIDBL(value);
                 return PartialView(contentList);
             }

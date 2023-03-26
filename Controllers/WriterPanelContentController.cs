@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,22 @@ namespace MvcBlogProje.Controllers
             int id = wm.GetWriterIdBL(parametre);
             var contentvalue = cm.GetListWriterIDBL(id);
             return View(contentvalue);
+        }
+        [HttpGet]
+        public ActionResult NewContent(int id)
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult NewContent(Content content)
+        {
+            string parametre = (string)Session["WriterMail"];
+            int id = wm.GetWriterIdBL(parametre);
+            content.WriterID = id;
+            content.ContentDate = DateTime.Now;
+            content.ContentStatus = true;
+            cm.ContentAddBL(content);
+            return RedirectToAction("MyHeading");
         }
     }
 }
