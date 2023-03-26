@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete
 
         public void ContentAddBL(Content content)
         {
-            throw new NotImplementedException();
+            _contentDal.Insert(content);
         }
 
         public void ContentDeleteBL(Content content)

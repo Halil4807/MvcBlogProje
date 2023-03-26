@@ -24,6 +24,7 @@ namespace MvcBlogProje.Controllers
         [HttpGet]
         public ActionResult NewContent(int id)
         {
+            ViewBag.HeadingId = id;
             return View();
         }
         [HttpPost]
@@ -35,7 +36,7 @@ namespace MvcBlogProje.Controllers
             content.ContentDate = DateTime.Now;
             content.ContentStatus = true;
             cm.ContentAddBL(content);
-            return RedirectToAction("MyHeading");
+            return RedirectToAction("MyHeading","WriterPanel");
         }
     }
 }
