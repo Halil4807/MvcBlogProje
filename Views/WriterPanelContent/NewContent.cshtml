@@ -8,7 +8,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Yeni Başlık Ekleme</h1>
+                <h1><b>@ViewBag.HeadingName</b>'e İçerik Ekleme</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -28,12 +28,12 @@
         <div class="card-body ">
             @using (Html.BeginForm("NewContent", "WriterPanelContent", FormMethod.Post))
             {
-            <div class="form-group col-md-6" style="padding-left: 45px">
+            <div class="form-group col-md-9" style="padding-left: 45px">
                 @Html.Label("Başlık Id:")
                 <input type="text" name="HeadingID" value="@ViewBag.HeadingId" hidden/>
 
                 @Html.Label("Yazı İçeriği:")
-                @Html.TextAreaFor(x => x.ContentValue, 4, 30, new { @class = "form-control" })
+                @Html.TextAreaFor(x => x.ContentValue, 10, 70, new { @class = "form-control" })
                 <p style="color:red">@Html.ValidationMessageFor(x => x.ContentValue)</p>
 
                 <div style="text-align: center">

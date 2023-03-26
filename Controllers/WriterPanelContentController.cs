@@ -14,6 +14,7 @@ namespace MvcBlogProje.Controllers
         // GET: WriterPanelContent
         ContentManager cm = new ContentManager(new EfContentDal());
         WriterManager wm = new WriterManager(new EfWriterDal());
+        HeadingManager hm = new HeadingManager(new EfHeadingDal());
         public ActionResult MyContent()
         {
             string parametre = (string)Session["WriterMail"];
@@ -24,6 +25,7 @@ namespace MvcBlogProje.Controllers
         [HttpGet]
         public ActionResult NewContent(int id)
         {
+            ViewBag.HeadingName = hm.GetById(id).HeadingName;
             ViewBag.HeadingId = id;
             return View();
         }
@@ -36,7 +38,7 @@ namespace MvcBlogProje.Controllers
             content.ContentDate = DateTime.Now;
             content.ContentStatus = true;
             cm.ContentAddBL(content);
-            return RedirectToAction("MyHeading","WriterPanel");
+            return RedirectToAction("MyContent");
         }
     }
 }
