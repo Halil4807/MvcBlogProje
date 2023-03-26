@@ -74,8 +74,9 @@ namespace MvcBlogProje.Controllers
         }
         public ActionResult Logout()
         {
-            Session.RemoveAll();
+            //Session.RemoveAll();
             FormsAuthentication.SignOut();
+            Session.Abandon();
             return RedirectToAction("WriterLogin");
         }
     }
