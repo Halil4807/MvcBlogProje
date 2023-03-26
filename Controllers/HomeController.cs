@@ -18,10 +18,19 @@ namespace MvcBlogProje.Controllers
             var headingList = hm.GetList();
             return View(headingList);
         }
-        public PartialViewResult Index()
+        public PartialViewResult Index(int? id)
         {
-            var contentList = cm.GetListBL();
-            return PartialView(contentList);
+            if (id == null)
+            {
+                var contentList = cm.GetListBL();
+                return PartialView(contentList);
+            }
+            else
+            {
+                int value = (int)id;
+                var contentList = cm.GetListByIDBL(value);
+                return PartialView(contentList);
+            }
         }
     }
 }
