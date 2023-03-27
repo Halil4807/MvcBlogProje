@@ -105,3 +105,7 @@ C:\Users\halil\source\repos\MvcBlogProje\bin\System.Runtime.CompilerServices.Uns
 C:\Users\halil\source\repos\MvcBlogProje\bin\System.Threading.Tasks.Extensions.xml
 C:\Users\halil\source\repos\MvcBlogProje\obj\Debug\MvcBlogProje.Properties.Resources.resources
 C:\Users\halil\source\repos\MvcBlogProje\obj\Debug\MvcBlogProje.csproj.GenerateResource.cache
+C:\Users\halil\source\repos\MvcBlogProje\bin\PagedList.dll
+C:\Users\halil\source\repos\MvcBlogProje\bin\PagedList.Mvc.dll
+C:\Users\halil\source\repos\MvcBlogProje\bin\PagedList.xml
+C:\Users\halil\source\repos\MvcBlogProje\bin\PagedList.Mvc.xml

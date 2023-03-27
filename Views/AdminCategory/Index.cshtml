@@ -1,5 +1,7 @@
 ﻿@using EntityLayer.Concrete
-@model List<Category>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Category>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -38,6 +40,7 @@
         <tr>
         </tr>
     </table>
+    @Html.PagedListPager((IPagedList)Model,sayfa=>Url.Action("Index",new {sayfa}),new PagedListRenderOptions { LiElementClasses=new List<string> { "page-link"} })
     <a href="/AdminCategory/AddCategory" class="btn btn-success">Kategori Ekle</a>
 </div>
 

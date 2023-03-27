@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace MvcBlogProje.Controllers
 {
@@ -16,10 +18,19 @@ namespace MvcBlogProje.Controllers
         // GET: AdminCategory
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         [Authorize(Roles ="A")]
-        public ActionResult Index()
+        public ActionResult Index(int? sayfa)
         {
-            var categoryvalues = cm.GetList();
-            return View(categoryvalues);
+            if(sayfa==null)
+            {
+                var categoryvalues = cm.GetList().ToPagedList(1, 3);
+                return View(categoryvalues);
+            }
+            else
+            {
+                var categoryvalues = cm.GetList().ToPagedList((int)sayfa, 3);
+                return View(categoryvalues);
+            }
+            
         }
         [HttpGet]
         public ActionResult AddCategory()
