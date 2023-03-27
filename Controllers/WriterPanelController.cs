@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +17,31 @@ namespace MvcBlogProje.Controllers
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         WriterManager wm = new WriterManager(new EfWriterDal());
+        WriterValidator writervalidar = new WriterValidator();
         public ActionResult WriterProfile()
         {
-            return View();
+
+            int WriterID = wm.GetWriterIdBL((string)Session["WriterMail"]);
+            var writervalue = wm.GetByIDBL(WriterID);
+            return View(writervalue);
+        }
+        public ActionResult EditProfile(Writer yazar)
+        {
+            ValidationResult sonuc = writervalidar.Validate(yazar);
+            yazar.WriterPassword = wm.hashADM(yazar.WriterPassword);
+            if (sonuc.IsValid)
+            {
+                wm.WriterUpdateBL(yazar);
+                return RedirectToAction("WriterProfile");
+            }
+            else
+            {
+                foreach (var item in sonuc.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return RedirectToAction("WriterProfile");
         }
         public ActionResult MyHeading()
         {
