@@ -28,7 +28,24 @@ namespace MvcBlogProje.Controllers
         public ActionResult EditProfile(Writer yazar)
         {
             ValidationResult sonuc = writervalidar.Validate(yazar);
+            if (sonuc.IsValid)
+            {
+                wm.WriterUpdateBL(yazar);
+                return RedirectToAction("WriterProfile");
+            }
+            else
+            {
+                foreach (var item in sonuc.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return RedirectToAction("WriterProfile");
+        }
+        public ActionResult EditPassword(Writer yazar)
+        {
             yazar.WriterPassword = wm.hashADM(yazar.WriterPassword);
+            ValidationResult sonuc = writervalidar.Validate(yazar);
             if (sonuc.IsValid)
             {
                 wm.WriterUpdateBL(yazar);
