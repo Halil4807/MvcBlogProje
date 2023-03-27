@@ -18,7 +18,8 @@ namespace MvcBlogProje.Controllers
             ViewBag.username = resultusername;
             return View();
         }
-        public ActionResult Test2()
+        [AllowAnonymous]
+        public ActionResult HomePage()
         {
             return View();
         }
