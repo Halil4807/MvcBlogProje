@@ -18,21 +18,31 @@ namespace MvcBlogProje.Controllers
             return View();
         }
 
-
-
-        //Mimariye uygun olmadan
-        Context c = new Context();
+        //Mimariyr uygun
         [AllowAnonymous]
         public ActionResult GetAllContent(string parametre)
         {
-            //var values = c.Contents.ToList(); //Tüm verileri getirme
-            var values = from x in c.Contents select x;
-            if(!string.IsNullOrEmpty(parametre))
+            var values = cm.GetListBL(parametre);
+            if (string.IsNullOrEmpty(parametre))
             {
-                values = values.Where(y => y.ContentValue.Contains(parametre));
+                values = cm.GetListBL();
             }
-            return View(values.ToList());
+            return View(values);
         }
+
+        //Mimariye uygun olmadan
+        //Context c = new Context();
+        //[AllowAnonymous]
+        //public ActionResult GetAllContent(string parametre)
+        //{
+        //    //var values = c.Contents.ToList(); //Tüm verileri getirme
+        //    var values = from x in c.Contents select x;
+        //    if(!string.IsNullOrEmpty(parametre))
+        //    {
+        //        values = values.Where(y => y.ContentValue.Contains(parametre));
+        //    }
+        //    return View(values.ToList());
+        //}
 
 
 

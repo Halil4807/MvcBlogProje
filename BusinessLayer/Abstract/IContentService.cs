@@ -10,6 +10,7 @@ namespace BusinessLayer.Abstract
     public interface IContentService
     {
         List<Content> GetListBL();
+        List<Content> GetListBL(string parametre);
         List<Content> GetListByIDBL(int id);
         List<Content> GetListWriterIDBL(int id);
         Content GetByIDBL(int id);
