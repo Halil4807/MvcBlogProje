@@ -28,6 +28,11 @@ namespace BusinessLayer.Concrete
             return _messageDal.List(x => x.ReceiverMail == mail);
         }
 
+        public List<Message> GetListInbox(string mail, string search)
+        {
+            return _messageDal.List(x => x.ReceiverMail == mail && x.MessageContent.Contains(search));
+        }
+
         public List<Message> GetListInboxNotRead(string mail)
         {
             return _messageDal.List(x => x.ReceiverMail == mail && x.MessageRead == false);
@@ -36,6 +41,11 @@ namespace BusinessLayer.Concrete
         public List<Message> GetListSendbox(string mail)
         {
             return _messageDal.List(x => x.SenderMail == mail);
+        }
+
+        public List<Message> GetListSendbox(string mail, string search)
+        {
+            return _messageDal.List(x => x.SenderMail == mail && x.MessageContent.Contains(search));
         }
 
         public List<Message> GetListSendboxNotRead(string mail)

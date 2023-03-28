@@ -16,10 +16,20 @@ namespace MvcBlogProje.Controllers
         // GET: WriterPanelMessage
         MessageManager mm = new MessageManager(new EfMessageDal());
         MessageValidator messagevalidar = new MessageValidator();
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
-            var messagelist = mm.GetListInbox((string)Session["WriterMail"]);
-            return View(messagelist);
+            if (string.IsNullOrEmpty(search))
+            {
+                ViewBag.search="";
+                var messagelist = mm.GetListInbox((string)Session["WriterMail"]);
+                return View(messagelist);
+            }
+            else
+            {
+                ViewBag.search = search;
+                var messagelist = mm.GetListInbox((string)Session["WriterMail"], search);
+                return View(messagelist);
+            }
         }
         public PartialViewResult WriterMailMenuPartial()
         {
@@ -29,10 +39,21 @@ namespace MvcBlogProje.Controllers
             ViewBag.InboxMailCount = messagelistInbox.Count();
             return PartialView();
         }
-        public ActionResult Sendbox()
+        public ActionResult Sendbox(string search)
         {
-            var messagelist = mm.GetListSendbox((string)Session["WriterMail"]);
-            return View(messagelist);
+            if (string.IsNullOrEmpty(search))
+            {
+                ViewBag.search = "";
+                var messagelist = mm.GetListSendbox((string)Session["WriterMail"]);
+                return View(messagelist);
+            }
+            else
+            {
+                ViewBag.search = search;
+                var messagelist = mm.GetListSendbox((string)Session["WriterMail"],search);
+                return View(messagelist);
+            }
+
         }
         public ActionResult GetMessageDetails(int id)
         {

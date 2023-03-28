@@ -36,12 +36,23 @@
                     <h3 class="card-title">Gelen Mesajlar</h3>
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
-                            <input type="text" class="form-control" placeholder="Mail Arama">
-                            <div class="input-group-append">
-                                <div class="btn btn-primary">
-                                    <i class="fas fa-search"></i>
-                                </div>
-                            </div>
+                            @*<input type="text" class="form-control" placeholder="Mail Arama">
+                                <div class="input-group-append">
+                                    <div class="btn btn-primary">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                </div>*@
+                            <form action="/WriterPanelMessage/Index" method="post">
+                                @if (string.IsNullOrEmpty(ViewBag.search))
+                                {
+                                    <input type="text" name="search" bclass="form-control" placeholder="Mail Arama" />
+                                }
+                                else
+                                {
+                                    <input type="text" name="search" bclass="form-control" placeholder="@ViewBag.search" />
+                                }
+                                <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                            </form>
                         </div>
                     </div>
                     <!-- /.card-tools -->
@@ -104,7 +115,7 @@
                                         </td>
                                         <td class="mailbox-date"> @item.MessageDate.ToString("dd-MMM-yyyy HH-mm")</td>
                                     </tr>
-}
+                                }
                             </tbody>
 
                         </table>

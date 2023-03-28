@@ -31,12 +31,27 @@
                     <h3 class="card-title">Gönderilen Mesajlar</h3>
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
-                            <input type="text" class="form-control" placeholder="Mail Arama">
-                            <div class="input-group-append">
-                                <div class="btn btn-primary">
-                                    <i class="fas fa-search"></i>
-                                </div>
-                            </div>
+
+                            @*@using (Html.BeginForm("Sendbox", "WriterPanelMessage", FormMethod.Post))
+            {
+        <p>
+            Aranacak Kelimeyi giriniz: @Html.TextBox("search", new { @class = "form-control" })
+
+        </p>
+            <input type="text" class="form-control" placeholder="Mail Arama">
+            <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+            }*@
+                            <form action="/WriterPanelMessage/Sendbox" method="post">
+                                @if (string.IsNullOrEmpty(ViewBag.search))
+                                {
+                                    <input type="text" name="search" bclass="form-control" placeholder="Mail Arama" />
+                                }
+                                else
+                                {
+                                    <input type="text" name="search" bclass="form-control" placeholder="@ViewBag.search" />
+                                }
+                                <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                            </form>
                         </div>
                     </div>
                     <!-- /.card-tools -->
