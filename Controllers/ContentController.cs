@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,24 @@ namespace MvcBlogProje.Controllers
         {
             return View();
         }
+
+
+
+        //Mimariye uygun olmadan
+        Context c = new Context();
+        [AllowAnonymous]
+        public ActionResult GetAllContent(string parametre)
+        {
+            //var values = c.Contents.ToList(); //Tüm verileri getirme
+            var values = from x in c.Contents select x;
+            if(!string.IsNullOrEmpty(parametre))
+            {
+                values = values.Where(y => y.ContentValue.Contains(parametre));
+            }
+            return View(values.ToList());
+        }
+
+
 
         public ActionResult ContentByHeading(int id)
         {
