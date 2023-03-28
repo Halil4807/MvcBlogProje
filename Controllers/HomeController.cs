@@ -34,5 +34,9 @@ namespace MvcBlogProje.Controllers
                 return PartialView(contentList);
             }
         }
+        public ActionResult HomePage()
+        {
+            return View();
+        }
     }
 }
