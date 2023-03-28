@@ -17,15 +17,39 @@ namespace MvcBlogProje.Controllers
         // GET: Message
         MessageManager mm = new MessageManager(new EfMessageDal());
         MessageValidator messagevalidar = new MessageValidator();
-        public ActionResult Inbox()
+        public ActionResult Inbox(string search)
         {
-            var messagelist = mm.GetListInbox((string)Session["AdminUserName"]);
-            return View(messagelist);
+            //var messagelist = mm.GetListInbox((string)Session["AdminUserName"]);
+            //return View(messagelist);
+            if (string.IsNullOrEmpty(search))
+            {
+                ViewBag.search = "";
+                var messagelist = mm.GetListInbox((string)Session["AdminUserName"]);
+                return View(messagelist);
+            }
+            else
+            {
+                ViewBag.search = search;
+                var messagelist = mm.GetListInbox((string)Session["AdminUserName"], search);
+                return View(messagelist);
+            }
         }
-        public ActionResult Sendbox()
+        public ActionResult Sendbox(string search)
         {
-            var messagelist = mm.GetListSendbox((string)Session["AdminUserName"]);
-            return View(messagelist);
+            //var messagelist = mm.GetListSendbox((string)Session["AdminUserName"]);
+            //return View(messagelist);
+            if (string.IsNullOrEmpty(search))
+            {
+                ViewBag.search = "";
+                var messagelist = mm.GetListInbox((string)Session["AdminUserName"]);
+                return View(messagelist);
+            }
+            else
+            {
+                ViewBag.search = search;
+                var messagelist = mm.GetListInbox((string)Session["AdminUserName"], search);
+                return View(messagelist);
+            }
         }
 
         public ActionResult GetMessageDetails(int id)

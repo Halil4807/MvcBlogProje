@@ -42,6 +42,10 @@ namespace BusinessLayer.Concrete
         {
             return _contactDal.List();
         }
+        public List<Contact> GetList(string search)
+        {
+            return _contactDal.List(x=>x.Message.Contains(search));
+        }
 
         public List<Contact> GetListNotRead()
         {

@@ -10,6 +10,7 @@ namespace BusinessLayer.Abstract
     public interface IContactService
     {
         List<Contact> GetList();
+        List<Contact> GetList(string search);
         List<Contact> GetListNotRead();
         void ContactAddBL(Contact contact);
         Contact GetById(int id);

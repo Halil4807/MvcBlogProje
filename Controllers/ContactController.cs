@@ -16,10 +16,20 @@ namespace MvcBlogProje.Controllers
         ContactValidator cv = new ContactValidator();
         //Okunmamış Mesaj sayısını için
         MessageManager mm = new MessageManager(new EfMessageDal());
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
-            var contactvalues = cm.GetList();
-            return View(contactvalues);
+            if (string.IsNullOrEmpty(search))
+            {
+                ViewBag.search = "";
+                var messagelist = cm.GetList();
+                return View(messagelist);
+            }
+            else
+            {
+                ViewBag.search = search;
+                var messagelist = cm.GetList(search);
+                return View(messagelist);
+            }
         }
         public ActionResult GetContactDetails(int id)
         {
