@@ -1,0 +1,101 @@
+﻿@using EntityLayer.Concrete
+@model List<Content>
+
+@{ ViewBag.Title = "GetAllContent";
+                Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>
+                    @foreach (var item in Model)
+                    {
+        @item.Heading.HeadingName
+            break;
+    }
+                </h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">Content</li>
+                    <li class="breadcrumb-item active">ContentByHeading</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card card-solid">
+        <div class="card-body pb-0">
+            @using(Html.BeginForm("GetAllContent","Content",FormMethod.Post))
+            {
+            <p>
+                Aranacak Kelimeyi giriniz: @Html.TextBox("parametre")
+                <input type="submit" value="Ara">
+            </p>
+            }
+            <!-- Site wrapper -->
+            <div class="wrapper">
+                <section class="content">
+                    <div class="container-fluid">
+
+                        <!-- Timelime example  -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- The time line -->
+                                <div class="timeline">
+                                    <!-- timeline time label -->
+                                    @foreach (var item in Model)
+                                    {
+                        <div class="time-label">
+                            <span class="bg-success">@item.ContentDate.ToString("dd-MMM-yyyy HH-mm")</span>
+                        </div> <!-- /.timeline-label --> <!-- timeline item -->
+                                                                        <div>
+                                                                            <i class="fas fa-comment bg-yellow"></i>
+                                                                            <div class="timeline-item">
+                                                                                <h3 class="timeline-header"><font color="red"><b>@item.Heading.HeadingName -> @item.Writer.WriterName @item.Writer.WriterSurName</b></font></h3>
+                                                                                <div class="timeline-body">
+                                                                                    @item.ContentValue
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>}
+
+
+                                    <!-- END timeline item -->
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </div>
+                    <!-- /.timeline -->
+                </section>
+                <!-- /.content -->
+            </div>
+            <!-- ./wrapper -->
+
+
+        </div>
+
+
+        @*--- Sayfalama Alanı----*@
+        <!-- /.card-body -->
+        <!--<div class="card-footer">
+            <nav aria-label="Contacts Page Navigation">
+                <ul class="pagination justify-content-center m-0">
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                </ul>
+            </nav>
+        </div>-->
+        <!-- /.card-footer -->
+
+    </div>
+    <!-- /.card -->
+</section>
+<!-- /.content -->

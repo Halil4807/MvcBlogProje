@@ -1,0 +1,33 @@
+﻿@model EntityLayer.Concrete.Category
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<br />
+<h1 style="padding-left: 70px">Yeni Kategori Ekleme</h1>
+<br />
+<br />
+
+@using (Html.BeginForm("AddCategory", "AdminCategory", FormMethod.Post))
+{
+<div class="form-group col-md-6" style="padding-left: 45px">
+    @Html.Label("Kategori Adı:")
+    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    <p style="color:red"> @Html.ValidationMessageFor(x => x.CategoryName) </p>
+
+    @Html.Label("Kategori Açıklaması:")
+    @Html.TextAreaFor(x => x.CategoryDescription, new { @class = "form-control" })
+    <p style="color:red"> @Html.ValidationMessageFor(x => x.CategoryDescription) </p>
+
+    @Html.Label("Kategori Durumu:")
+    @Html.DropDownList("CaterogyStatus", new List<SelectListItem>
+    {
+          new SelectListItem { Text = "Aktif", Value = "true",Selected=true},
+          new SelectListItem { Text = "Pasif", Value = "false"}
+    },"Kategori Durumu Seçiniz!", new { @class = "form-control" })
+    <p style="color:red"> @Html.ValidationMessageFor(x => x.CaterogyStatus) </p>
+    <br />
+    <button class="btn btn-success">Kategori Ekle</button>
+</div>
+}

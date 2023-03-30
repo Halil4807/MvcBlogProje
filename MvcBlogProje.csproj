@@ -221,6 +221,16 @@
     <Content Include="dist\css\alt\adminlte.plugins.min.css" />
     <Content Include="dist\error\css\style.css" />
     <Content Include="dist\error\img\bg.jpg" />
+    <Content Include="dist\skill\css\style.css" />
+    <Content Include="dist\skill\images\5.jpg" />
+    <Content Include="dist\skill\images\img1.jpg" />
+    <Content Include="dist\skill\images\sprite.png" />
+    <Content Include="dist\skill\index.html" />
+    <Content Include="dist\skill\js\bars.js" />
+    <Content Include="dist\skill\js\easyResponsiveTabs.js" />
+    <Content Include="dist\skill\js\jquery-1.11.1.min.js" />
+    <Content Include="dist\skill\js\jquery.circlechart.js" />
+    <Content Include="dist\skill\w3layouts-License.txt" />
     <Content Include="Views\ErrorPage\index.html" />
     <Content Include="dist\img\2.png" />
     <Content Include="dist\img\4.png" />

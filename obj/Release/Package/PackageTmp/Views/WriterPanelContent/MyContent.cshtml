@@ -1,0 +1,80 @@
+﻿@using EntityLayer.Concrete
+@{
+    ViewBag.Title = "MyContent";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+@ViewBag.mail
+@ViewBag.id
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+
+                @foreach (var item in Model)
+                {
+                    <h1> @item.Writer.WriterName @item.Writer.WriterSurName </h1>break;
+                }
+
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">WriterPanelContent</li>
+                    <li class="breadcrumb-item active">MyContent</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card card-solid">
+        <div class="card-body pb-0">
+
+            <!-- Site wrapper -->
+            <div class="wrapper">
+                <section class="content">
+                    <div class="container-fluid">
+
+                        <!-- Timelime example  -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- The time line -->
+                                <div class="timeline">
+                                    <!-- timeline time label -->
+                                    @foreach (var item in Model)
+                                    {
+                                        <div class="time-label">
+                                            <span class="bg-success">@item.ContentDate.ToString("dd-MMM-yyyy HH-mm")</span>
+                                        </div> <!-- /.timeline-label --> <!-- timeline item -->
+                                        <div>
+                                            <i class="fas fa-comment bg-yellow"></i>
+                                            <div class="timeline-item">
+                                                <h3 class="timeline-header">@item.Heading.HeadingName</h3>
+                                                <div class="timeline-body">
+                                                    @item.ContentValue
+                                                </div>
+                                            </div>
+                                        </div>}
+
+
+                                    <!-- END timeline item -->
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </div>
+                    <!-- /.timeline -->
+                </section>
+                <!-- /.content -->
+            </div>
+            <!-- ./wrapper -->
+        </div>
+    </div>
+    <!-- /.card -->
+</section>
+<!-- /.content -->

@@ -1,0 +1,60 @@
+﻿@model EntityLayer.Concrete.Admin
+@{
+    ViewBag.Title = "EditAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Admin Edit</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">Authorization</li>
+                    <li class="breadcrumb-item active">EditAdmin</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card card-solid">
+        <div class="card-body pb-0">
+
+            @using (Html.BeginForm("EditAdmin", "Authorization", FormMethod.Post))
+            {
+                <div class="form-group col-md-6" style="padding-left: 45px">
+                    @Html.HiddenFor(x=>x.AdminID)
+                    @Html.Label("Admin Kullanıcı Adı:")
+                    @Html.TextBoxFor(x => x.AdminUserName, new { @class = "form-control" })
+                    <p style="color:red"> @Html.ValidationMessageFor(x => x.AdminUserName) </p>
+                    @Html.Label("Admin Mail:")
+                    @Html.TextBoxFor(x => x.AdminMail, new { @class = "form-control" })
+                    <p style="color:red"> @Html.ValidationMessageFor(x => x.AdminMail) </p>
+
+                    @Html.Label("Şifre Giriniz:")
+                    @Html.TextBoxFor(x => x.AdminPassword, new { @class = "form-control" })
+                    <p style="color:red"> @Html.ValidationMessageFor(x => x.AdminPassword) </p>
+
+                    @Html.Label("Admin Role:")
+                    @Html.DropDownList("AdminRole", new List<SelectListItem>
+                    {
+                          new SelectListItem { Text = "Super Admin", Value = "A",Selected=true},
+                          new SelectListItem { Text = "Admin", Value = "B"}
+                    }, new { @class = "form-control" })
+                    <p style="color:red"> @Html.ValidationMessageFor(x => x.AdminRole) </p>
+                    <br />
+                    <button class="btn btn-success">Admin Düeznle</button>
+                </div>}
+        </div>
+    </div>
+    <!-- /.card -->
+</section>
+<!-- /.content -->

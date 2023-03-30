@@ -1,0 +1,45 @@
+﻿@using EntityLayer.Concrete;
+@model List<Category>
+
+@*  @ işaretinin buradaki ismi Razor Syntax  *@
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <title>GetCategoryList</title>
+</head>
+<body>
+    <div class="col-md-9" style="position: relative; margin: auto;">
+        <h3>Kategori Tablosu</h3>
+        <br />
+        <br />
+        <table class="table table-hover table-bordered">
+            <tr>
+                <th>ID</th>
+                <th>Adı</th>
+                <th>Açıklama</th>
+                <th>Durum</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>@item.CategoryID</td>
+                    <td>@item.CategoryName</td>
+                    <td>@item.CategoryDescription</td>
+                    <td>@item.CaterogyStatus</td>
+                </tr>
+            }
+        </table>
+        <a href="/Category/AddCategory" class="btn btn-success">Yeni Kategori Ekle</a>
+    </div>
+</body>
+</html>
