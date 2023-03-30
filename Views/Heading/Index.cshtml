@@ -35,6 +35,10 @@
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body">
+                            <script language="javascript" src="http://ir.sitekodlari.com/takvim7.js?300323"></script>
+
+
+
                             <table id="example1" class="table table-striped projects table-bordered table-striped">
                                 <thead>
                                     <tr>
@@ -119,14 +123,12 @@
 
                             <td class="project-state">
                                 <span class="badge badge-@durumcolor">
-                                     @if (item.HeadingStatus)
-                                     {
-                                        <font>Aktif</font> 
-                                     }
-                                     else
-                                     {
-                                        <font>Pasif</font>
-                                     }
+                                    @if (item.HeadingStatus)
+                                    {
+                        <font>Aktif</font> }
+                                        else
+                                        {
+                        <font>Pasif</font>}
                                 </span>
                             </td>
                             <td class="project-actions text-right">
@@ -156,13 +158,14 @@
                                     </i>
                                     @if (item.HeadingStatus)
                                     {
-                    <font>Pasif Yap</font> }
-                else
-                {
-<font>Aktif Yap</font>}
+                        <font>Pasif Yap</font> }
+                    else
+                    {
+                        <font>Aktif Yap</font>}
                                 </a>
                             </td>
-                        </tr>}
+                        </tr>
+}
 
                                 </tbody>
                                 <tfoot>

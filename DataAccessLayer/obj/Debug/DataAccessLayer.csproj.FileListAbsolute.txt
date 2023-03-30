@@ -28,3 +28,4 @@ C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Debug\DataAccessLay
 C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.mig_Admin_add_class.resources
 C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.mig_Message_Contact_add_Read.resources
 C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.mig_admin_add_adminstatus.resources
+C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.mig_skill_add_class.resources

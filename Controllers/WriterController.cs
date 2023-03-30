@@ -5,6 +5,7 @@ using EntityLayer.Concrete;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -43,7 +44,7 @@ namespace MvcBlogProje.Controllers
             }
             return View();
         }
-         [HttpGet]
+        [HttpGet]
         public ActionResult EditWriter(int id)
         {
             var writervalue = wm.GetByIDBL(id);
@@ -55,7 +56,16 @@ namespace MvcBlogProje.Controllers
             ValidationResult sonuc = writervalidar.Validate(yazar);
             if (sonuc.IsValid)
             {
-                wm.WriterUpdateBL(yazar);
+                if (Request.Files.Count > 0)
+                {
+                    string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
+                    string uzanti = Path.GetExtension(Request.Files[0].FileName);
+                    string yol = "~/images/writer/" + dosyaadi + uzanti;
+                    Request.Files[0].SaveAs(Server.MapPath(yol));
+                    yazar.WriterImage = "/images/writer/" + dosyaadi + uzanti;
+                    wm.WriterUpdateBL(yazar);
+                }
+
                 return RedirectToAction("Index");
             }
             else
