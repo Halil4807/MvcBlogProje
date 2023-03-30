@@ -21,5 +21,6 @@ namespace EntityLayer.Concrete
         public string AdminMail { get; set; }
         [StringLength(250)]
         public string AdminImage { get; set; }
+        public bool AdminStatus { get; set; }
     }
 }

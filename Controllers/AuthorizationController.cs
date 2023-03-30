@@ -32,7 +32,6 @@ namespace MvcBlogProje.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
-        [Authorize(Roles = "A")]
         public ActionResult EditAdmin(int id)
         {
             var categoryValue = adm.GetById(id);
@@ -42,6 +41,13 @@ namespace MvcBlogProje.Controllers
         public ActionResult EditAdmin(Admin admin)
         {
             adm.AdminUpdateBL(admin);
+            return RedirectToAction("Index");
+        }
+        public ActionResult DeleteAdmin(int id)
+        {
+            var adminValue = adm.GetById(id);
+            adminValue.AdminStatus = false;
+            adm.AdminUpdateBL(adminValue);
             return RedirectToAction("Index");
         }
     }
