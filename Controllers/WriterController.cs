@@ -32,7 +32,17 @@ namespace MvcBlogProje.Controllers
             ValidationResult sonuc = writervalidar.Validate(writer);
             if (sonuc.IsValid)
             {
-                wm.WriterAddBL(writer);
+
+                if (Request.Files.Count > 0)
+                {
+                    string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
+                    string uzanti = Path.GetExtension(Request.Files[0].FileName);
+                    string yol = "~/images/writer/" + dosyaadi + uzanti;
+                    Request.Files[0].SaveAs(Server.MapPath(yol));
+                    writer.WriterImage = "/images/writer/" + dosyaadi + uzanti;
+                    writer.WriterPassword = wm.hashADM(writer.WriterPassword);
+                    wm.WriterAddBL(writer);
+                }
                 return RedirectToAction("Index");
             }
             else

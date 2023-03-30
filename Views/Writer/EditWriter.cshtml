@@ -50,12 +50,12 @@
                 <font color="red" margin="10px 15px 20px 10px" padding="10px 15px 5px 20px">@Html.ValidationMessageFor(x => x.WriterPassword)</font><br />
 
                 @*@Html.Label("Yazar Profil Resmi:http linki")
-                @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
-                <font color="red">@Html.ValidationMessageFor(x => x.WriterImage)</font><br />*@
+        @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
+        <font color="red">@Html.ValidationMessageFor(x => x.WriterImage)</font><br />*@
 
-            <p>Yazar Profil Resmi</p>
-            <input type="file" name="WriterImage"/>
-            <br />  
+                <p><b>Yazar Profil Resmi</b></p>
+                <input type="file" name="WriterImage" />
+                <br />
 
                 @Html.Label("Yazar Ünvanı")
                 @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control" })
