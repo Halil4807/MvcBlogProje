@@ -12,7 +12,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li><a href="#" class="btn btn-success">Yeni Admin Ekle</a></li>&nbsp;&nbsp;
+                    <li><a href="/Authorization/AddAdmin" class="btn btn-success">Yeni Admin Ekle</a></li>&nbsp;&nbsp;
                     <li class="breadcrumb-item">Authorization</li>
                     <li class="breadcrumb-item active">Index</li>
                 </ol>
@@ -41,6 +41,7 @@
                 <table class="table table-hover table-bordered">
                     <tr>
                         <th>#</th>
+                        <th>Kullanıcı Adı</th>
                         <th>Kullanıcı Mail</th>
                         <th>Yetki</th>
                         <th>Status</th>
@@ -51,18 +52,19 @@
                     {
         <tr>
             <th>@item.AdminID</th>
+            <td>@item.AdminUserName</td>
             <td>@item.AdminMail</td>
             <td>@item.AdminRole</td>
             <td>Aktif</td>
-            <td width="8%" align="center"><a href="/AdminCategory/DeleteCategory/@item.AdminID" class="btn btn-danger">Pasif Yap</a></td>
-            <td width="12%" align="center"><a href="/AdminCategory/EditCategory/@item.AdminID" class="btn btn-warning">Yetki Değiştir</a></td>
+            <td width="8%" align="center"><a href="/Authorization/DeleteAdmin/@item.AdminID" class="btn btn-danger">Pasif Yap</a></td>
+            <td width="12%" align="center"><a href="/Authorization/EditAdmin/@item.AdminID" class="btn btn-warning">Yetki Değiştir</a></td>
         </tr>
 }
                     <tr>
                     </tr>
                 </table>
                 @*@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }), new PagedListRenderOptions { LiElementClasses = new List<string> { "page-link" } })*@
-                <a href="/AdminCategory/AddCategory" class="btn btn-success">Kategori Ekle</a>
+                <a href="/Authorization/AddAdmin" class="btn btn-success">Admin Ekle</a>
             </div>
 
             <br />

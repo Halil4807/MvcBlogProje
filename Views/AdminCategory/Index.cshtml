@@ -2,12 +2,13 @@
 @using PagedList
 @using PagedList.Mvc
 @model PagedList.IPagedList<Category>
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
-}
+@{ ViewBag.Title = "Index";
+                Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-
+<b>[Authorize(Roles = "A")</b> İşlemi Yetkilendirme sayfasına aktarıldı <br />
+A=Super Admin(Her yetkiye sahip)<br />
+B=Admin Yetkilendirme sayfaına giremiyor. <br />
+<font color="red"><b>Silme işlemini yaparsanız o id ye bağlı tüm verilerde silinecektir!!!</b></font>
 <br />
 <br />
 
@@ -27,20 +28,19 @@
         </tr>
         @foreach (var item in Model)
         {
-            <tr>
-                <th>@item.CategoryID</th>
-                <td>@item.CategoryName</td>
-                <td>@item.CategoryDescription</td>
-                <td width="8%" align="center">@item.CaterogyStatus</td>
-                <td width="8%" align="center"><a href="/AdminCategory/DeleteCategory/@item.CategoryID" class="btn btn-danger">Sil</a></td>
-                <td width="8%" align="center"><a href="/AdminCategory/EditCategory/@item.CategoryID" class="btn btn-warning">Güncelle</a></td>
-                <td width="8%" align="center"><a href="#" class="btn btn-primary">Başlıklar</a></td>
-            </tr>
-        }
+<tr>
+    <th>@item.CategoryID</th>
+    <td>@item.CategoryName</td>
+    <td>@item.CategoryDescription</td>
+    <td width="8%" align="center">@item.CaterogyStatus</td>
+    <td width="8%" align="center"><a href="/AdminCategory/DeleteCategory/@item.CategoryID" class="btn btn-danger">Sil</a></td>
+    <td width="8%" align="center"><a href="/AdminCategory/EditCategory/@item.CategoryID" class="btn btn-warning">Güncelle</a></td>
+    <td width="8%" align="center"><a href="#" class="btn btn-primary">Başlıklar</a></td>
+</tr>}
         <tr>
         </tr>
     </table>
-    @Html.PagedListPager((IPagedList)Model,sayfa=>Url.Action("Index",new {sayfa}),new PagedListRenderOptions { LiElementClasses=new List<string> { "page-link"} })
+    @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }), new PagedListRenderOptions { LiElementClasses = new List<string> { "page-link" } })
     <a href="/AdminCategory/AddCategory" class="btn btn-success">Kategori Ekle</a>
 </div>
 

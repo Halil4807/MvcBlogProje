@@ -80,19 +80,17 @@ to get the desired effect
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
-                        @if (User.IsInRole("A"))
-                        {
-            <li class="nav-item has-treeview">
-                <a href="/AdminCategory/Index" class="nav-link">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>
-                        Kategoriler
+                        <li class="nav-item has-treeview">
+                            <a href="/AdminCategory/Index" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Kategoriler
 
-                    </p>
-                </a>
+                                </p>
+                            </a>
 
-            </li>
-}
+                        </li>
+
                         <li class="nav-item">
                             <a href="/Heading/Index" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
@@ -171,15 +169,17 @@ to get the desired effect
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="pages/calendar.html" class="nav-link">
-                                <i class="nav-icon fas fa-calendar-alt"></i>
-                                <p>
-                                    Yetkilendirmeler
-                                    <span class="badge badge-info right">2</span>
-                                </p>
-                            </a>
-                        </li>
+                        @if (User.IsInRole("A"))
+                        {
+            <li class="nav-item">
+                <a href="/Authorization/Index" class="nav-link">
+                    <i class="nav-icon fas fa-calendar-alt"></i>
+                    <p>
+                        Yetkilendirmeler
+                        @*<span class="badge badge-info right">2</span>*@
+                    </p>
+                </a>
+            </li>}
                         <li class="nav-item">
                             <a href="/Galeri/Index" class="nav-link">
                                 <i class="nav-icon far fa-image margin-right-md fa-spin" style="color: var(--white); --fa-animation-duration:2s;"></i>

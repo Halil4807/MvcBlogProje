@@ -17,7 +17,6 @@ namespace MvcBlogProje.Controllers
     {
         // GET: AdminCategory
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
-        [Authorize(Roles ="A")]
         public ActionResult Index(int? sayfa)
         {
             if(sayfa==null)
