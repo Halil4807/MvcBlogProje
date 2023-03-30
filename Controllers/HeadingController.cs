@@ -20,6 +20,11 @@ namespace MvcBlogProje.Controllers
             var headingvalue = hm.GetList();
             return View(headingvalue);
         }
+        public ActionResult HeadingReport()
+        {
+            var headingvalue = hm.GetList();
+            return View(headingvalue);
+        }
         [HttpGet]
         public ActionResult AddHeading()
         {
