@@ -19,12 +19,12 @@ namespace BusinessLayer.Concrete
             _adminDal = adminDal;
         }
 
-        public void AdminAddBL(Admin about)
+        public void AdminAddBL(Admin admin)
         {
             throw new NotImplementedException();
         }
 
-        public void AdminDeleteBL(Admin about)
+        public void AdminDeleteBL(Admin admin)
         {
             throw new NotImplementedException();
         }
@@ -45,7 +45,7 @@ namespace BusinessLayer.Concrete
             }
         }
 
-        public void AdminUpdateBL(Admin about)
+        public void AdminUpdateBL(Admin admin)
         {
             throw new NotImplementedException();
         }
@@ -57,7 +57,7 @@ namespace BusinessLayer.Concrete
 
         public List<Admin> GetList()
         {
-            throw new NotImplementedException();
+            return _adminDal.List();
         }
         public string hashADM(string text)
         {
