@@ -1,0 +1,59 @@
+﻿@model EntityLayer.Concrete.Skill
+@{
+    ViewBag.Title = "EditSkill";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Yetenek Düzenle</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">Skill</li>
+                    <li class="breadcrumb-item active">EditSkill</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card card-solid">
+        <div class="card-body pb-0">
+            @using (Html.BeginForm("EditSkill", "Skill", FormMethod.Post))
+            {
+                <div class="form-group col-md-6" style="padding-left: 45px">
+                    @Html.HiddenFor(x=>x.SkillID)
+                    @Html.HiddenFor(x=>x.SkillName)
+
+                    @Html.LabelFor(x=>x.SkillName)
+                    @Html.DropDownList("SkillValue", new List<SelectListItem>
+                    {
+                          new SelectListItem { Text = "100%", Value = "100",Selected=true},
+                          new SelectListItem { Text = "90%", Value = "90"},
+                          new SelectListItem { Text = "80%", Value = "80"},
+                          new SelectListItem { Text = "70%", Value = "70"},
+                          new SelectListItem { Text = "60%", Value = "60"},
+                          new SelectListItem { Text = "50%", Value = "50"},
+                          new SelectListItem { Text = "40%", Value = "40"},
+                          new SelectListItem { Text = "30%", Value = "30"},
+                          new SelectListItem { Text = "20%", Value = "20"},
+                          new SelectListItem { Text = "10%", Value = "10"},
+                          new SelectListItem { Text = "0%", Value = "0"},
+                    }, new { @class = "form-control" })
+                    <br />
+                    <button class="btn btn-success">Admin Düeznle</button>
+                </div>
+            }
+        </div>
+    </div>
+    <!-- /.card -->
+</section>
+<!-- /.content -->

@@ -23,5 +23,10 @@ namespace MvcBlogProje.Controllers
         {
             return View();
         }
+        [AllowAnonymous]
+        public ActionResult Takvim()
+        {
+            return View();
+        }
     }
 }

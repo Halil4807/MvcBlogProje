@@ -26,7 +26,7 @@
     <!-- Default box -->
     <div class="card card-solid">
         <div class="card-body ">
-            @using (Html.BeginForm("AddWriter", "Writer", FormMethod.Post))
+            @using (Html.BeginForm("AddWriter", "Writer", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
             <div class="form-group col-md-6" style="padding-left: 45px">
                 @Html.Label("Yazar Adı:")
@@ -45,9 +45,14 @@
                 @Html.PasswordFor(x => x.WriterPassword, new { @class = "form-control" })
                 <p style="color:red">@Html.ValidationMessageFor(x => x.WriterPassword)</p>
 
-                @Html.Label("Yazar Profil Resmi:http linki")
-                @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
-                <p style="color:red">@Html.ValidationMessageFor(x => x.WriterImage)</p>
+                @*@Html.Label("Yazar Profil Resmi:http linki")
+        @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
+        <p style="color:red">@Html.ValidationMessageFor(x => x.WriterImage)</p>*@
+
+
+                <p><b>Yazar Profil Resmi</b></p>
+                <input type="file" name="WriterImage" />
+                <br />
 
                 @Html.Label("Yazar Ünvanı")
                 @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control" })

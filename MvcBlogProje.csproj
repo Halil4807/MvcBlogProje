@@ -2741,6 +2741,7 @@
     <Content Include="Views\Skill\Index.cshtml" />
     <Content Include="Views\Skill\EditSkill.cshtml" />
     <Content Include="Views\Skill\SkillView.cshtml" />
+    <Content Include="Views\Test\Takvim.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

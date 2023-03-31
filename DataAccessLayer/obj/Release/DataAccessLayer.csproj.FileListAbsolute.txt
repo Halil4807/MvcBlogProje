@@ -28,3 +28,4 @@ C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Release\DataAccessL
 C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Release\DataAccessLayer.csproj.CopyComplete
 C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Release\DataAccessLayer.dll
 C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Release\DataAccessLayer.pdb
+C:\Users\halil\source\repos\MvcBlogProje\DataAccessLayer\obj\Release\DataAccessLayer.Migrations.mig_skill_add_class.resources
