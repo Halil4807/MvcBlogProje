@@ -4,8 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Users\halil\Desktop\MvcBlogProje</_PublishTargetUrl>
-    <History>False|2023-04-09T00:01:00.8070612Z;True|2023-03-31T17:19:03.5888634+03:00;</History>
+    <History>False|2023-04-09T00:01:37.1122179Z;</History>
+    <_PublishTargetUrl>C:\Users\halil\Desktop\web</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="AdminLTE-3.0.4/.babelrc">
@@ -993,22 +993,22 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/19/2023 04:06:28</publishTime>
     </File>
     <File Include="bin/BusinessLayer.dll">
-      <publishTime>03/31/2023 17:18:42</publishTime>
+      <publishTime>04/09/2023 03:01:33</publishTime>
     </File>
     <File Include="bin/BusinessLayer.dll.config">
       <publishTime>03/19/2023 04:06:28</publishTime>
     </File>
     <File Include="bin/BusinessLayer.pdb">
-      <publishTime>03/31/2023 17:18:42</publishTime>
+      <publishTime>04/09/2023 03:01:33</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.dll">
-      <publishTime>03/31/2023 17:18:42</publishTime>
+      <publishTime>04/09/2023 03:01:33</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.dll.config">
       <publishTime>03/19/2023 04:06:28</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.pdb">
-      <publishTime>03/31/2023 17:18:42</publishTime>
+      <publishTime>04/09/2023 03:01:33</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>03/19/2023 04:06:28</publishTime>
@@ -1035,10 +1035,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/19/2023 04:06:28</publishTime>
     </File>
     <File Include="bin/MvcBlogProje.dll">
-      <publishTime>03/31/2023 17:18:45</publishTime>
+      <publishTime>04/09/2023 03:02:16</publishTime>
     </File>
     <File Include="bin/MvcBlogProje.pdb">
-      <publishTime>03/31/2023 17:18:45</publishTime>
+      <publishTime>04/09/2023 03:02:16</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>03/19/2023 04:06:28</publishTime>
@@ -7944,7 +7944,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/19/2023 04:06:28</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/31/2023 17:18:50</publishTime>
+      <publishTime>04/09/2023 03:02:19</publishTime>
     </File>
   </ItemGroup>
 </Project>
